@@ -29,7 +29,6 @@
 .tema-chiaro .hero .sotto--chiaro path { stroke: var(--bosco); }
 .tema-chiaro .hero .appunto { color: var(--bosco-testo); }
 .tema-chiaro .hero .freccia-tec path { stroke: var(--bosco); }
-.tema-chiaro .hero .microcopy { color: var(--notte-75); }
 .tema-chiaro .hero .deco { color: rgba(44, 111, 79, 0.4); }
 .tema-chiaro .hero .deco--ambra { color: rgba(198, 138, 46, 0.6); }
 .tema-chiaro .btn--hero, .tema-chiaro .btn--nav { background: var(--notte); color: var(--avorio); }
@@ -45,6 +44,9 @@ html.js .tema-chiaro .btn--hero { animation-name: respiro-notte; }
 .tema-chiaro .nav__voce { color: var(--notte); }
 .tema-chiaro .nav__voce:hover { color: var(--bosco-testo); }
 .tema-chiaro .hero :focus-visible { outline-color: var(--bosco); }
+.tema-chiaro .microfatti li { background: rgba(59, 138, 100, 0.14); border-color: var(--hairline-chiaro); color: var(--notte-75); }
+.tema-chiaro .microfatti li b { color: var(--notte); }
+.tema-chiaro .microfatti li img { background: var(--bianco); border: 1px solid var(--hairline-chiaro); }
 </style>
 </head>
 <body class="tema-chiaro">
@@ -54,15 +56,17 @@ html.js .tema-chiaro .btn--hero { animation-name: respiro-notte; }
 <div class="lettura" aria-hidden="true"><i></i></div>
 
 <header class="nav">
-  <a class="nav__logo" href="#top" aria-label="centraleLegale">
-    <img src="../assets/img/Marchio.Colori.svg" alt="centraleLegale" width="280" height="86">
-  </a>
-  <nav class="nav__destra" aria-label="Azioni">
-    <a class="nav__voce" href="#situazioni">Le situazioni</a>
-    <a class="nav__voce" href="#percorso">Come funziona</a>
-    <a class="nav__voce" href="#domande">Domande</a>
-    <a class="btn btn--nav" href="#verifica">Cancella il Debito</a>
-  </nav>
+  <div class="nav__interno">
+    <a class="nav__logo" href="#top" aria-label="centraleLegale">
+      <img src="../assets/img/Marchio.Colori.svg" alt="centraleLegale" width="280" height="86">
+    </a>
+    <nav class="nav__destra" aria-label="Azioni">
+      <a class="nav__voce" href="#situazioni">Le situazioni</a>
+      <a class="nav__voce" href="#percorso">Come funziona</a>
+      <a class="nav__voce" href="#domande">Domande</a>
+      <a class="btn btn--nav" href="#verifica">Cancella il Debito</a>
+    </nav>
+  </div>
 </header>
 
 <div class="stickybar" aria-hidden="true">
@@ -86,14 +90,17 @@ html.js .tema-chiaro .btn--hero { animation-name: respiro-notte; }
         <p class="hero__sub rv" style="--d:260ms">È capire <strong>cosa puoi fare</strong> per tornare alla vita che ami.</p>
         <p class="hero__lead rv" style="--d:340ms">Analizziamo la tua posizione per poterti affiancare nel percorso. Professionisti con <span class="sotto sotto--chiaro">esperienza ventennale<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 9 C 45 4, 90 12, 130 7 S 185 6, 196 9"/></svg></span> nel diritto bancario e nelle procedure di sovraindebitamento. Assistenza in tutta Italia.</p>
         <div class="hero__azione rv" style="--d:440ms">
-          <span class="con-appunto" aria-hidden="true">
-            <span class="appunto" style="left:-8px; top:-56px; --rot:-6deg">il primo passo</span>
-            <span class="freccia-tec" style="left:118px; top:-46px; width:52px">
+          <span class="con-appunto con-appunto--hero" aria-hidden="true">
+            <span class="appunto">il primo passo</span>
+            <span class="freccia-tec">
               <svg viewBox="0 0 60 46"><path pathLength="1" d="M52 4 C 40 16, 26 26, 12 38"/><path pathLength="1" class="punta" d="M12 38 l12 -3 m-12 3 l3 -12"/></svg>
             </span>
           </span>
           <a class="btn btn--hero" id="cta-hero" href="#verifica">Cancella il Debito <span class="btn__freccia" aria-hidden="true">→</span></a>
-          <p class="microcopy">Risposta entro 48 ore · Prima chiamata conoscitiva senza costi</p>
+          <ul class="microfatti">
+            <li><img src="../assets/img/v2/icone/pop/busta-veloce.webp" alt="" width="480" height="480"><span>Risposta entro <b>48 ore</b></span></li>
+            <li><img src="../assets/img/v2/icone/pop/telefono-regalo.webp" alt="" width="480" height="480"><span>Prima chiamata conoscitiva <b>senza costi</b></span></li>
+          </ul>
         </div>
       </div>
       <figure class="hero__figura rv" style="--d:300ms">
@@ -101,7 +108,7 @@ html.js .tema-chiaro .btn--hero { animation-name: respiro-notte; }
         <span class="hero__arch">
           <span class="hero__arch-chiave" aria-hidden="true"></span>
           <span class="hero__arch-clip">
-            <img class="hero__figura-img" src="../assets/img/v2/foto/avvocata.webp" alt="Professionista dello staff in giacca verde petrolio, sorriso rassicurante — immagine illustrativa generata con AI" width="599" height="995">
+            <img class="hero__figura-img" src="../assets/img/v2/foto/avvocata.webp" alt="Professionista dello staff in giacca verde petrolio, sorriso rassicurante — immagine illustrativa generata con AI" width="596" height="996">
           </span>
         </span>
         <span class="appunto appunto--figura" aria-hidden="true" style="--rot:4deg">dalla tua parte</span>
