@@ -3,22 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>centraleLegale — Il problema non è il debito</title>
+<title>centraleLegale — Il problema non è il debito (hero chiaro)</title>
 <meta name="description" content="Professionisti con esperienza ventennale nel diritto bancario e nelle procedure di sovraindebitamento. Verifica la tua posizione: risposta scritta entro 48 ore, nessun impegno. Assistenza in tutta Italia.">
 <meta property="og:title" content="centraleLegale — Il problema non è il debito">
 <meta property="og:description" content="Il problema non è il debito. È capire cosa puoi fare. Risposta entro 48 ore, prima chiamata conoscitiva senza costi.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#113b44">
-<link rel="preload" href="assets/fonts/MomoTrustDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/Fraunces_72pt-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/Poppins-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/SourceSans3-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="assets/img/favicon-32x32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="preload" href="../assets/fonts/MomoTrustDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/Fraunces_72pt-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/Poppins-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/SourceSans3-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="../assets/img/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/css/main.css">
 <script>document.documentElement.classList.add('js');</script>
+
+<style>
+/* ---- Variante: hero su fondo chiaro ---- */
+.tema-chiaro .hero { background: var(--avorio); }
+.tema-chiaro .hero__title { color: var(--notte); }
+.tema-chiaro .marca { color: var(--bianco); }
+.tema-chiaro .hero__sub { color: var(--notte-75); }
+.tema-chiaro .hero__sub strong { color: var(--notte); }
+.tema-chiaro .hero__lead { color: var(--notte-75); }
+.tema-chiaro .hero .sotto--chiaro path { stroke: var(--bosco); }
+.tema-chiaro .hero .appunto { color: var(--bosco-testo); }
+.tema-chiaro .hero .freccia-tec path { stroke: var(--bosco); }
+.tema-chiaro .hero .microcopy { color: var(--notte-75); }
+.tema-chiaro .hero .deco { color: rgba(44, 111, 79, 0.4); }
+.tema-chiaro .hero .deco--ambra { color: rgba(198, 138, 46, 0.6); }
+.tema-chiaro .btn--hero, .tema-chiaro .btn--nav { background: var(--notte); color: var(--avorio); }
+.tema-chiaro .btn--hero:hover, .tema-chiaro .btn--nav:hover { background: var(--petrolio); color: var(--avorio); }
+html.js .tema-chiaro .btn--hero { animation-name: respiro-notte; }
+@keyframes respiro-notte {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(17, 59, 68, 0.32); }
+  55% { box-shadow: 0 0 0 16px rgba(17, 59, 68, 0); }
+}
+.tema-chiaro .hero__arch::before { border-color: rgba(17, 59, 68, 0.35); }
+.tema-chiaro .hero .alone .a1 { background: radial-gradient(circle, rgba(59, 138, 100, 0.14), transparent 68%); }
+.tema-chiaro .hero .alone .a2 { background: radial-gradient(circle, rgba(59, 138, 100, 0.1), transparent 70%); }
+.tema-chiaro .nav__voce { color: var(--notte); }
+.tema-chiaro .nav__voce:hover { color: var(--bosco-testo); }
+.tema-chiaro .hero :focus-visible { outline-color: var(--bosco); }
+</style>
 </head>
-<body>
+<body class="tema-chiaro">
 
 <a class="skip" href="#verifica">Vai al modulo di verifica</a>
 
@@ -26,7 +55,7 @@
 
 <header class="nav">
   <a class="nav__logo" href="#top" aria-label="centraleLegale">
-    <img src="assets/img/Marrchio.Banco.svg" alt="centraleLegale" width="280" height="86">
+    <img src="../assets/img/Marchio.Colori.svg" alt="centraleLegale" width="280" height="86">
   </a>
   <nav class="nav__destra" aria-label="Azioni">
     <a class="nav__voce" href="#situazioni">Le situazioni</a>
@@ -72,7 +101,7 @@
         <span class="hero__arch">
           <span class="hero__arch-chiave" aria-hidden="true"></span>
           <span class="hero__arch-clip">
-            <img class="hero__figura-img" src="assets/img/v2/foto/avvocata.webp" alt="Professionista dello staff in giacca verde petrolio, sorriso rassicurante — immagine illustrativa generata con AI" width="599" height="995">
+            <img class="hero__figura-img" src="../assets/img/v2/foto/avvocata.webp" alt="Professionista dello staff in giacca verde petrolio, sorriso rassicurante — immagine illustrativa generata con AI" width="599" height="995">
           </span>
         </span>
         <span class="appunto appunto--figura" aria-hidden="true" style="--rot:4deg">dalla tua parte</span>
@@ -85,22 +114,22 @@
     <span class="deco deco--squiggle" style="left:3%; top:-14px; width:64px; --rot:-4deg" aria-hidden="true"><svg viewBox="0 0 90 24"><path pathLength="1" d="M4 12 C 12 4, 20 4, 28 12 S 44 20, 52 12 S 68 4, 86 12"/></svg></span>
     <div class="numeri__griglia">
       <div class="numero rv">
-        <span class="chip chip--s" aria-hidden="true"><img src="assets/img/v2/icone/pop/orologio.webp" alt="" width="480" height="480" loading="lazy"></span>
+        <span class="chip chip--s" aria-hidden="true"><img src="../assets/img/v2/icone/pop/orologio.webp" alt="" width="480" height="480" loading="lazy"></span>
         <p class="numero__cifra"><span class="conta" data-fine="48">48</span><span class="numero__unita">h</span></p>
         <p class="numero__voce">ti rispondiamo, <span class="hi hi--scuro">per iscritto</span></p>
       </div>
       <div class="numero rv" style="--d:90ms">
-        <span class="chip chip--s" aria-hidden="true"><img src="assets/img/v2/icone/pop/calendario.webp" alt="" width="480" height="480" loading="lazy"></span>
+        <span class="chip chip--s" aria-hidden="true"><img src="../assets/img/v2/icone/pop/calendario.webp" alt="" width="480" height="480" loading="lazy"></span>
         <p class="numero__cifra"><span class="conta" data-fine="40">40</span><span class="numero__unita">giorni</span></p>
         <p class="numero__voce">per opporsi a un decreto ingiuntivo dalla notifica</p>
       </div>
       <div class="numero rv" style="--d:180ms">
-        <span class="chip chip--s" aria-hidden="true"><img src="assets/img/v2/icone/pop/domande.webp" alt="" width="480" height="480" loading="lazy"></span>
+        <span class="chip chip--s" aria-hidden="true"><img src="../assets/img/v2/icone/pop/domande.webp" alt="" width="480" height="480" loading="lazy"></span>
         <p class="numero__cifra"><span class="conta" data-fine="5">5</span><span class="numero__unita">domande</span></p>
         <p class="numero__voce">per inquadrare il tuo caso</p>
       </div>
       <div class="numero numero--manifesto rv" style="--d:270ms">
-        <span class="chip chip--s" aria-hidden="true"><img src="assets/img/v2/icone/pop/no-promesse.webp" alt="" width="480" height="480" loading="lazy"></span>
+        <span class="chip chip--s" aria-hidden="true"><img src="../assets/img/v2/icone/pop/no-promesse.webp" alt="" width="480" height="480" loading="lazy"></span>
         <p class="numero__cifra"><span>0</span><span class="numero__unita">promesse</span></p>
         <p class="numero__voce">di risultato: <span class="hi hi--scuro">ogni caso è diverso</span></p>
       </div>
@@ -144,7 +173,7 @@
       <div class="fronti__lista">
         <article class="fronte fronte--uno rv">
           <span class="fronte__numero" aria-hidden="true">01</span>
-          <span class="chip chip--fronte" aria-hidden="true"><img src="assets/img/v2/icone/pop/cronometro.webp" alt="" width="480" height="480" loading="lazy"></span>
+          <span class="chip chip--fronte" aria-hidden="true"><img src="../assets/img/v2/icone/pop/cronometro.webp" alt="" width="480" height="480" loading="lazy"></span>
           <div class="fronte__corpo">
             <h3 class="fronte__titolo">Hai ricevuto un decreto ingiuntivo o un atto di pignoramento</h3>
             <p class="fronte__testo">Un decreto ingiuntivo si può opporre, ma il termine è di <strong class="cerchio cerchio--ambra num">40 giorni<svg viewBox="0 0 204 48" aria-hidden="true"><path pathLength="1" d="M14 26 C 12 12, 58 5, 104 6 C 152 7, 194 13, 192 26 C 190 39, 142 44, 92 43 C 44 42, 16 38, 14 26 C 13 20, 24 15, 40 12"/></svg></strong> dalla notifica. In molti casi chi chiede il pagamento è una società che ha acquistato il credito dalla banca e <span class="marca-salvia">non è in grado di dimostrare di esserne il titolare</span>. Quando quella prova manca, il decreto può essere revocato e l'esecuzione sospesa.</p>
@@ -152,7 +181,7 @@
         </article>
         <article class="fronte fronte--due rv">
           <span class="fronte__numero" aria-hidden="true">02</span>
-          <span class="chip chip--fronte" aria-hidden="true"><img src="assets/img/v2/icone/pop/gomma.webp" alt="" width="480" height="480" loading="lazy"></span>
+          <span class="chip chip--fronte" aria-hidden="true"><img src="../assets/img/v2/icone/pop/gomma.webp" alt="" width="480" height="480" loading="lazy"></span>
           <div class="fronte__corpo">
             <h3 class="fronte__titolo">I debiti sono più di quello che riesci a pagare</h3>
             <p class="fronte__testo">Il Codice della Crisi prevede procedure che permettono di ristrutturare l'intera posizione debitoria in un piano sostenibile e, in presenza dei requisiti di legge, di ottenere <span class="marca-salvia">l'esdebitazione del residuo</span>. Vale per tutti i debiti insieme: <span class="hi hi--scuro">banche, finanziarie, Agenzia delle Entrate, comuni</span>.</p>
@@ -160,7 +189,7 @@
         </article>
         <article class="fronte fronte--tre rv">
           <span class="fronte__numero" aria-hidden="true">03</span>
-          <span class="chip chip--fronte" aria-hidden="true"><img src="assets/img/v2/icone/pop/scudo-bandiera.webp" alt="" width="480" height="480" loading="lazy"></span>
+          <span class="chip chip--fronte" aria-hidden="true"><img src="../assets/img/v2/icone/pop/scudo-bandiera.webp" alt="" width="480" height="480" loading="lazy"></span>
           <div class="fronte__corpo">
             <h3 class="fronte__titolo">Hai un'impresa in difficoltà</h3>
             <p class="fronte__testo">Quando l'esposizione dell'azienda comincia a toccare <span class="hi hi--scuro">il patrimonio personale</span>, le procedure previste dal Codice della Crisi vanno attivate entro finestre temporali precise. <span class="marca-salvia">Ogni mese di attesa riduce le soluzioni disponibili.</span></p>
@@ -186,24 +215,24 @@
       </div>
       <div class="tavola__righe">
         <div class="rigat rv">
-          <div class="rigat__prima"><span class="visually-hidden">Prima: </span><span class="chip chip--riga chip--no" aria-hidden="true"><img src="assets/img/v2/icone/pop/busta-zzz.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--x"><svg viewBox="0 0 24 24"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></i></span><p>Ignori le raccomandate, sperando che passi.</p></div>
-          <div class="rigat__oggi"><span class="visually-hidden">Oggi: </span><span class="chip chip--riga" aria-hidden="true"><img src="assets/img/v2/icone/pop/calendario-check.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--v"><svg viewBox="0 0 24 24"><path d="M5 13 L10 18 L19 7"/></svg></i></span><p>Ogni atto ha un termine: l'opposizione a decreto ingiuntivo si fa entro <strong class="cerchio cerchio--ambra num">40 giorni<svg viewBox="0 0 204 48" aria-hidden="true"><path pathLength="1" d="M14 26 C 12 12, 58 5, 104 6 C 152 7, 194 13, 192 26 C 190 39, 142 44, 92 43 C 44 42, 16 38, 14 26 C 13 20, 24 15, 40 12"/></svg></strong> dalla notifica.</p></div>
+          <div class="rigat__prima"><span class="visually-hidden">Prima: </span><span class="chip chip--riga chip--no" aria-hidden="true"><img src="../assets/img/v2/icone/pop/busta-zzz.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--x"><svg viewBox="0 0 24 24"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></i></span><p>Ignori le raccomandate, sperando che passi.</p></div>
+          <div class="rigat__oggi"><span class="visually-hidden">Oggi: </span><span class="chip chip--riga" aria-hidden="true"><img src="../assets/img/v2/icone/pop/calendario-check.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--v"><svg viewBox="0 0 24 24"><path d="M5 13 L10 18 L19 7"/></svg></i></span><p>Ogni atto ha un termine: l'opposizione a decreto ingiuntivo si fa entro <strong class="cerchio cerchio--ambra num">40 giorni<svg viewBox="0 0 204 48" aria-hidden="true"><path pathLength="1" d="M14 26 C 12 12, 58 5, 104 6 C 152 7, 194 13, 192 26 C 190 39, 142 44, 92 43 C 44 42, 16 38, 14 26 C 13 20, 24 15, 40 12"/></svg></strong> dalla notifica.</p></div>
         </div>
         <div class="rigat rv">
-          <div class="rigat__prima"><span class="visually-hidden">Prima: </span><span class="chip chip--riga chip--no" aria-hidden="true"><img src="assets/img/v2/icone/pop/megafono.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--x"><svg viewBox="0 0 24 24"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></i></span><p>Paghi chi urla più forte.</p></div>
-          <div class="rigat__oggi"><span class="visually-hidden">Oggi: </span><span class="chip chip--riga" aria-hidden="true"><img src="assets/img/v2/icone/pop/percorso-check.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--v"><svg viewBox="0 0 24 24"><path d="M5 13 L10 18 L19 7"/></svg></i></span><p>Si mappa tutta la posizione e si decide <span class="hi">un ordine</span>, con un preventivo scritto prima.</p></div>
+          <div class="rigat__prima"><span class="visually-hidden">Prima: </span><span class="chip chip--riga chip--no" aria-hidden="true"><img src="../assets/img/v2/icone/pop/megafono.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--x"><svg viewBox="0 0 24 24"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></i></span><p>Paghi chi urla più forte.</p></div>
+          <div class="rigat__oggi"><span class="visually-hidden">Oggi: </span><span class="chip chip--riga" aria-hidden="true"><img src="../assets/img/v2/icone/pop/percorso-check.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--v"><svg viewBox="0 0 24 24"><path d="M5 13 L10 18 L19 7"/></svg></i></span><p>Si mappa tutta la posizione e si decide <span class="hi">un ordine</span>, con un preventivo scritto prima.</p></div>
         </div>
         <div class="rigat rv">
-          <div class="rigat__prima"><span class="visually-hidden">Prima: </span><span class="chip chip--riga chip--no" aria-hidden="true"><img src="assets/img/v2/icone/pop/miracoli.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--x"><svg viewBox="0 0 24 24"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></i></span><p>Ti affidi a chi promette miracoli.</p></div>
-          <div class="rigat__oggi"><span class="visually-hidden">Oggi: </span><span class="chip chip--riga" aria-hidden="true"><img src="assets/img/v2/icone/pop/mano-check.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--v"><svg viewBox="0 0 24 24"><path d="M5 13 L10 18 L19 7"/></svg></i></span><p>Nessuna promessa: <span class="marca-salvia marca-salvia--chiaro">se non ci sono margini, te lo diciamo</span>.</p></div>
+          <div class="rigat__prima"><span class="visually-hidden">Prima: </span><span class="chip chip--riga chip--no" aria-hidden="true"><img src="../assets/img/v2/icone/pop/miracoli.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--x"><svg viewBox="0 0 24 24"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></i></span><p>Ti affidi a chi promette miracoli.</p></div>
+          <div class="rigat__oggi"><span class="visually-hidden">Oggi: </span><span class="chip chip--riga" aria-hidden="true"><img src="../assets/img/v2/icone/pop/mano-check.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--v"><svg viewBox="0 0 24 24"><path d="M5 13 L10 18 L19 7"/></svg></i></span><p>Nessuna promessa: <span class="marca-salvia marca-salvia--chiaro">se non ci sono margini, te lo diciamo</span>.</p></div>
         </div>
         <div class="rigat rv">
-          <div class="rigat__prima"><span class="visually-hidden">Prima: </span><span class="chip chip--riga chip--no" aria-hidden="true"><img src="assets/img/v2/icone/pop/clessidra.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--x"><svg viewBox="0 0 24 24"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></i></span><p>Aspetti che la situazione si sistemi da sola.</p></div>
-          <div class="rigat__oggi"><span class="visually-hidden">Oggi: </span><span class="chip chip--riga" aria-hidden="true"><img src="assets/img/v2/icone/pop/codice.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--v"><svg viewBox="0 0 24 24"><path d="M5 13 L10 18 L19 7"/></svg></i></span><p>Il Codice della Crisi prevede procedure per ristrutturare la posizione in un piano sostenibile e, in presenza dei requisiti di legge, ottenere <span class="hi">l'esdebitazione del residuo</span>.</p></div>
+          <div class="rigat__prima"><span class="visually-hidden">Prima: </span><span class="chip chip--riga chip--no" aria-hidden="true"><img src="../assets/img/v2/icone/pop/clessidra.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--x"><svg viewBox="0 0 24 24"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></i></span><p>Aspetti che la situazione si sistemi da sola.</p></div>
+          <div class="rigat__oggi"><span class="visually-hidden">Oggi: </span><span class="chip chip--riga" aria-hidden="true"><img src="../assets/img/v2/icone/pop/codice.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--v"><svg viewBox="0 0 24 24"><path d="M5 13 L10 18 L19 7"/></svg></i></span><p>Il Codice della Crisi prevede procedure per ristrutturare la posizione in un piano sostenibile e, in presenza dei requisiti di legge, ottenere <span class="hi">l'esdebitazione del residuo</span>.</p></div>
         </div>
         <div class="rigat rv">
-          <div class="rigat__prima"><span class="visually-hidden">Prima: </span><span class="chip chip--riga chip--no" aria-hidden="true"><img src="assets/img/v2/icone/pop/telefono-lucchetto.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--x"><svg viewBox="0 0 24 24"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></i></span><p>Ti vergogni di chiedere.</p></div>
-          <div class="rigat__oggi"><span class="visually-hidden">Oggi: </span><span class="chip chip--riga" aria-hidden="true"><img src="assets/img/v2/icone/pop/telefono-cuore.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--v"><svg viewBox="0 0 24 24"><path d="M5 13 L10 18 L19 7"/></svg></i></span><p>La prima chiamata è <span class="hi">conoscitiva e senza costi</span>. Nessun giudizio.</p></div>
+          <div class="rigat__prima"><span class="visually-hidden">Prima: </span><span class="chip chip--riga chip--no" aria-hidden="true"><img src="../assets/img/v2/icone/pop/telefono-lucchetto.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--x"><svg viewBox="0 0 24 24"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></i></span><p>Ti vergogni di chiedere.</p></div>
+          <div class="rigat__oggi"><span class="visually-hidden">Oggi: </span><span class="chip chip--riga" aria-hidden="true"><img src="../assets/img/v2/icone/pop/telefono-cuore.webp" alt="" width="480" height="480" loading="lazy"><i class="badge badge--v"><svg viewBox="0 0 24 24"><path d="M5 13 L10 18 L19 7"/></svg></i></span><p>La prima chiamata è <span class="hi">conoscitiva e senza costi</span>. Nessun giudizio.</p></div>
         </div>
       </div>
       <p class="tavola__nota rv">Nessuno può sapere in anticipo di quanto si ridurrà un debito: <strong class="sotto">chi lo garantisce prima di aver visto i documenti non sta dicendo la verità<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 9 C 45 4, 90 12, 130 7 S 185 6, 196 9"/></svg></strong>.</p>
@@ -221,7 +250,7 @@
       </header>
       <div class="bento">
         <article class="fatto fatto--a rv">
-          <span class="chip chip--fatto" aria-hidden="true"><img src="assets/img/v2/icone/pop/busta-veloce.webp" alt="" width="480" height="480" loading="lazy"></span>
+          <span class="chip chip--fatto" aria-hidden="true"><img src="../assets/img/v2/icone/pop/busta-veloce.webp" alt="" width="480" height="480" loading="lazy"></span>
           <div>
             <h3>Risposta entro <span class="num">48 ore</span></h3>
             <p>Scritta, dallo staff di centraleLegale.</p>
@@ -229,28 +258,28 @@
           <span class="deco deco--sparkle deco--ambra" style="right:18px; top:16px; width:16px" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 C13 8 16 11 22 12 C16 13 13 16 12 22 C11 16 8 13 2 12 C8 11 11 8 12 2 Z"/></svg></span>
         </article>
         <article class="fatto fatto--b rv" style="--d:80ms">
-          <span class="chip chip--fatto" aria-hidden="true"><img src="assets/img/v2/icone/pop/telefono-regalo.webp" alt="" width="480" height="480" loading="lazy"></span>
+          <span class="chip chip--fatto" aria-hidden="true"><img src="../assets/img/v2/icone/pop/telefono-regalo.webp" alt="" width="480" height="480" loading="lazy"></span>
           <div>
             <h3>Prima chiamata senza costi</h3>
             <p>Conoscitiva. Serve a te, prima che a noi.</p>
           </div>
         </article>
         <article class="fatto fatto--c rv" style="--d:160ms">
-          <span class="chip chip--fatto" aria-hidden="true"><img src="assets/img/v2/icone/pop/preventivo-firma.webp" alt="" width="480" height="480" loading="lazy"></span>
+          <span class="chip chip--fatto" aria-hidden="true"><img src="../assets/img/v2/icone/pop/preventivo-firma.webp" alt="" width="480" height="480" loading="lazy"></span>
           <div>
             <h3>Preventivo scritto</h3>
             <p>Prima di ogni impegno. Nessun costo nascosto.</p>
           </div>
         </article>
         <article class="fatto fatto--d rv" style="--d:240ms">
-          <span class="chip chip--fatto" aria-hidden="true"><img src="assets/img/v2/icone/pop/laptop-call.webp" alt="" width="480" height="480" loading="lazy"></span>
+          <span class="chip chip--fatto" aria-hidden="true"><img src="../assets/img/v2/icone/pop/laptop-call.webp" alt="" width="480" height="480" loading="lazy"></span>
           <div>
             <h3>Online, ovunque</h3>
             <p>In videochiamata, in tutta Italia e all'estero.</p>
           </div>
         </article>
         <article class="fatto fatto--e rv" style="--d:320ms">
-          <span class="chip chip--fatto" aria-hidden="true"><img src="assets/img/v2/icone/pop/portafoglio.webp" alt="" width="480" height="480" loading="lazy"></span>
+          <span class="chip chip--fatto" aria-hidden="true"><img src="../assets/img/v2/icone/pop/portafoglio.webp" alt="" width="480" height="480" loading="lazy"></span>
           <div>
             <h3>I tuoi soldi restano tuoi</h3>
             <p>I pagamenti ai creditori li fai tu, direttamente. Non riceviamo somme destinate ai tuoi creditori.</p>
@@ -258,7 +287,7 @@
           <span class="deco deco--sparkle" style="left:20px; bottom:18px; width:15px; --fd:1.2s" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 C13 8 16 11 22 12 C16 13 13 16 12 22 C11 16 8 13 2 12 C8 11 11 8 12 2 Z"/></svg></span>
         </article>
         <article class="fatto fatto--f rv" style="--d:400ms">
-          <span class="chip chip--fatto" aria-hidden="true"><img src="assets/img/v2/icone/pop/bussola.webp" alt="" width="480" height="480" loading="lazy"></span>
+          <span class="chip chip--fatto" aria-hidden="true"><img src="../assets/img/v2/icone/pop/bussola.webp" alt="" width="480" height="480" loading="lazy"></span>
           <div>
             <h3>Se non ci sono margini, lo diciamo</h3>
             <p>Per iscritto, dopo l'analisi. <em>È già una risposta.</em></p>
@@ -309,33 +338,33 @@
                 <svg viewBox="0 0 42 40"><path pathLength="1" d="M38 4 C 28 12, 18 22, 10 34"/><path pathLength="1" class="punta" d="M10 34 l11 -4 m-11 4 l2 -11"/></svg>
               </span>
             </span>
-            <div class="passo__titolo"><span class="chip chip--passo" aria-hidden="true"><img src="assets/img/v2/icone/pop/modulo.webp" alt="" width="480" height="480" loading="lazy"></span><h3>La verifica</h3></div>
+            <div class="passo__titolo"><span class="chip chip--passo" aria-hidden="true"><img src="../assets/img/v2/icone/pop/modulo.webp" alt="" width="480" height="480" loading="lazy"></span><h3>La verifica</h3></div>
             <p>Ci racconti la tua situazione dal modulo: <span class="hi">cinque domande, due minuti</span>. Se necessario ti chiediamo i documenti principali: contratti, estratti conto, atti ricevuti.</p>
           </div>
           <figure class="passo__foto">
-            <span class="maschera maschera--arco"><img src="assets/img/v2/foto/passo1.webp" alt="Mani che compilano il modulo dal telefono, sul divano di casa — immagine illustrativa" width="1024" height="688" loading="lazy"></span>
+            <span class="maschera maschera--arco"><img src="../assets/img/v2/foto/passo1.webp" alt="Mani che compilano il modulo dal telefono, sul divano di casa — immagine illustrativa" width="1024" height="688" loading="lazy"></span>
           </figure>
         </article>
         <article class="passo passo--due passo--alterno rv">
           <span class="passo__nodo" aria-hidden="true"><b class="num">2</b></span>
           <div class="passo__testo">
-            <div class="passo__titolo"><span class="chip chip--passo" aria-hidden="true"><img src="assets/img/v2/icone/pop/lente.webp" alt="" width="480" height="480" loading="lazy"></span><h3>L'analisi</h3></div>
+            <div class="passo__titolo"><span class="chip chip--passo" aria-hidden="true"><img src="../assets/img/v2/icone/pop/lente.webp" alt="" width="480" height="480" loading="lazy"></span><h3>L'analisi</h3></div>
             <p>Analizziamo la posizione. Sui contenziosi bancari ci avvaliamo di <span class="hi">consulenti economici</span> che esaminano conti correnti e finanziamenti per verificare la corretta applicazione degli interessi e la legittimità delle commissioni.</p>
             <p class="passo__ricevi con-appunto--ricevi"><span class="appunto appunto--ricevi" aria-hidden="true" style="--rot:-3deg">qui si vede se ci sono margini</span></p>
           </div>
           <figure class="passo__foto">
-            <span class="maschera maschera--quadro"><img src="assets/img/v2/foto/passo2.webp" alt="Scrivania ordinata vista dall'alto: estratti conto, calcolatrice, segnapagina — immagine illustrativa" width="1024" height="688" loading="lazy"></span>
+            <span class="maschera maschera--quadro"><img src="../assets/img/v2/foto/passo2.webp" alt="Scrivania ordinata vista dall'alto: estratti conto, calcolatrice, segnapagina — immagine illustrativa" width="1024" height="688" loading="lazy"></span>
           </figure>
         </article>
         <article class="passo passo--tre rv">
           <span class="passo__nodo" aria-hidden="true"><b class="num">3</b></span>
           <div class="passo__testo">
-            <div class="passo__titolo"><span class="chip chip--passo" aria-hidden="true"><img src="assets/img/v2/icone/pop/preventivo-busta.webp" alt="" width="480" height="480" loading="lazy"></span><h3>La risposta</h3></div>
+            <div class="passo__titolo"><span class="chip chip--passo" aria-hidden="true"><img src="../assets/img/v2/icone/pop/preventivo-busta.webp" alt="" width="480" height="480" loading="lazy"></span><h3>La risposta</h3></div>
             <p>Ti comunichiamo <span class="hi">cosa si può fare, con quali tempi e con quali costi</span>. Se riteniamo che non ci siano margini, te lo diciamo.</p>
             <p class="passo__ricevi"><span class="caps">Ricevi</span> una risposta scritta, con tempi e costi</p>
           </div>
           <figure class="passo__foto">
-            <span class="maschera maschera--oblo"><img src="assets/img/v2/foto/passo3.webp" alt="Penna che firma un preventivo su carta chiara — immagine illustrativa" width="1024" height="688" loading="lazy"></span>
+            <span class="maschera maschera--oblo"><img src="../assets/img/v2/foto/passo3.webp" alt="Penna che firma un preventivo su carta chiara — immagine illustrativa" width="1024" height="688" loading="lazy"></span>
           </figure>
         </article>
         <article class="passo passo--quattro passo--alterno rv">
@@ -344,12 +373,12 @@
             <span class="con-appunto con-appunto--passo" aria-hidden="true">
               <span class="appunto" style="left:-2px; top:-44px; --rot:4deg">il passo che i taglia-debiti saltano</span>
             </span>
-            <div class="passo__titolo"><span class="chip chip--passo" aria-hidden="true"><img src="assets/img/v2/icone/pop/scudo-bandiera.webp" alt="" width="480" height="480" loading="lazy"></span><h3>L'incarico</h3></div>
+            <div class="passo__titolo"><span class="chip chip--passo" aria-hidden="true"><img src="../assets/img/v2/icone/pop/scudo-bandiera.webp" alt="" width="480" height="480" loading="lazy"></span><h3>L'incarico</h3></div>
             <p>Se decidi di procedere, firmiamo il mandato e ci occupiamo noi della procedura: opposizioni, trattative, composizione della crisi. Se invece non ci sono margini, <span class="marca-salvia marca-salvia--chiaro">te lo diciamo. È già una risposta.</span></p>
             <p class="passo__ricevi"><span class="caps">Ricevi</span> un preventivo scritto, prima della firma</p>
           </div>
           <figure class="passo__foto">
-            <span class="maschera maschera--arco maschera--doppia"><img src="assets/img/v2/foto/passo4.webp" alt="Stretta di mano in un ufficio luminoso — immagine illustrativa" width="1024" height="688" loading="lazy"></span>
+            <span class="maschera maschera--arco maschera--doppia"><img src="../assets/img/v2/foto/passo4.webp" alt="Stretta di mano in un ufficio luminoso — immagine illustrativa" width="1024" height="688" loading="lazy"></span>
           </figure>
         </article>
       </div>
@@ -361,7 +390,7 @@
     <span class="deco deco--squiggle" style="right:4%; top:60px; width:64px; --rot:-5deg" aria-hidden="true"><svg viewBox="0 0 90 24"><path pathLength="1" d="M4 12 C 12 4, 20 4, 28 12 S 44 20, 52 12 S 68 4, 86 12"/></svg></span>
     <div class="contenitore struttura__griglia">
       <figure class="struttura__foto rv">
-        <span class="arco-clip arco-clip--grande"><img src="assets/img/v2/foto/scrivania.webp" alt="Scrivania operativa in notturna: cuffia e fascicolo aperto, nessun volto — immagine illustrativa" width="1024" height="688" loading="lazy"></span>
+        <span class="arco-clip arco-clip--grande"><img src="../assets/img/v2/foto/scrivania.webp" alt="Scrivania operativa in notturna: cuffia e fascicolo aperto, nessun volto — immagine illustrativa" width="1024" height="688" loading="lazy"></span>
         <span class="appunto appunto--struttura" aria-hidden="true" style="--rot:3deg">sempre una persona vera</span>
       </figure>
       <div class="struttura__testo">
@@ -372,9 +401,9 @@
         <p class="rv"><span class="sotto sotto--chiaro">I pagamenti ai creditori li fai tu, direttamente<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 9 C 45 4, 90 12, 130 7 S 185 6, 196 9"/></svg></span>: non riceviamo somme destinate ai tuoi creditori.</p>
         <p class="rv">Per mantenere questa concentrazione abbiamo scelto di non trattare separazioni e divorzi. Se la tua situazione riguarda questi ambiti non siamo il servizio adatto, e <span class="hi hi--scuro">preferiamo dirtelo subito</span>.</p>
         <ul class="struttura__badge rv">
-          <li><span class="chip chip--badge" aria-hidden="true"><img src="assets/img/v2/icone/pop/mano-check.webp" alt="" width="480" height="480" loading="lazy"></span><span>Esperienza ventennale</span></li>
-          <li><span class="chip chip--badge" aria-hidden="true"><img src="assets/img/v2/icone/pop/preventivo-firma.webp" alt="" width="480" height="480" loading="lazy"></span><span>Preventivo scritto</span></li>
-          <li><span class="chip chip--badge" aria-hidden="true"><img src="assets/img/v2/icone/pop/laptop-call.webp" alt="" width="480" height="480" loading="lazy"></span><span>Online, in tutta Italia e all'estero</span></li>
+          <li><span class="chip chip--badge" aria-hidden="true"><img src="../assets/img/v2/icone/pop/mano-check.webp" alt="" width="480" height="480" loading="lazy"></span><span>Esperienza ventennale</span></li>
+          <li><span class="chip chip--badge" aria-hidden="true"><img src="../assets/img/v2/icone/pop/preventivo-firma.webp" alt="" width="480" height="480" loading="lazy"></span><span>Preventivo scritto</span></li>
+          <li><span class="chip chip--badge" aria-hidden="true"><img src="../assets/img/v2/icone/pop/laptop-call.webp" alt="" width="480" height="480" loading="lazy"></span><span>Online, in tutta Italia e all'estero</span></li>
         </ul>
       </div>
     </div>
@@ -397,27 +426,27 @@
       </header>
       <div class="faq__lista rv">
         <details class="faq__voce">
-          <summary><span class="chip chip--faq" aria-hidden="true"><img src="assets/img/v2/icone/pop/prezzo.webp" alt="" width="480" height="480" loading="lazy"></span><span class="faq__testo">Quanto costa?</span><span class="faq__più" aria-hidden="true">+</span></summary>
+          <summary><span class="chip chip--faq" aria-hidden="true"><img src="../assets/img/v2/icone/pop/prezzo.webp" alt="" width="480" height="480" loading="lazy"></span><span class="faq__testo">Quanto costa?</span><span class="faq__più" aria-hidden="true">+</span></summary>
           <div class="faq__corpo"><p>Ogni caso ha una storia a sé. Il preventivo è sempre <span class="sotto">scritto e precede qualsiasi impegno<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 9 C 45 4, 90 12, 130 7 S 185 6, 196 9"/></svg></span>, e la prima chiamata conoscitiva è <span class="hi">senza costi</span>.</p></div>
         </details>
         <details class="faq__voce">
-          <summary><span class="chip chip--faq" aria-hidden="true"><img src="assets/img/v2/icone/pop/cronometro.webp" alt="" width="480" height="480" loading="lazy"></span><span class="faq__testo">Ho già ricevuto un decreto ingiuntivo, sono ancora in tempo?</span><span class="faq__più" aria-hidden="true">+</span></summary>
+          <summary><span class="chip chip--faq" aria-hidden="true"><img src="../assets/img/v2/icone/pop/cronometro.webp" alt="" width="480" height="480" loading="lazy"></span><span class="faq__testo">Ho già ricevuto un decreto ingiuntivo, sono ancora in tempo?</span><span class="faq__più" aria-hidden="true">+</span></summary>
           <div class="faq__corpo"><p>Il termine per proporre opposizione è di <strong class="cerchio cerchio--ambra num">40 giorni<svg viewBox="0 0 204 48" aria-hidden="true"><path pathLength="1" d="M14 26 C 12 12, 58 5, 104 6 C 152 7, 194 13, 192 26 C 190 39, 142 44, 92 43 C 44 42, 16 38, 14 26 C 13 20, 24 15, 40 12"/></svg></strong> dalla notifica. Se il termine è scaduto <span class="hi">esistono altri strumenti</span>, ma vanno valutati sul caso concreto.</p></div>
         </details>
         <details class="faq__voce">
-          <summary><span class="chip chip--faq" aria-hidden="true"><img src="assets/img/v2/icone/pop/gomma.webp" alt="" width="480" height="480" loading="lazy"></span><span class="faq__testo">I debiti si cancellano?</span><span class="faq__più" aria-hidden="true">+</span></summary>
+          <summary><span class="chip chip--faq" aria-hidden="true"><img src="../assets/img/v2/icone/pop/gomma.webp" alt="" width="480" height="480" loading="lazy"></span><span class="faq__testo">I debiti si cancellano?</span><span class="faq__più" aria-hidden="true">+</span></summary>
           <div class="faq__corpo"><p>Le procedure di composizione della crisi permettono di ristrutturare la posizione e, in presenza dei requisiti previsti dalla legge, di ottenere <span class="marca-salvia marca-salvia--chiaro">l'esdebitazione del debito residuo</span>. Non è automatico e non vale per tutti: dipende dai requisiti e dalla valutazione del tribunale.</p></div>
         </details>
         <details class="faq__voce">
-          <summary><span class="chip chip--faq" aria-hidden="true"><img src="assets/img/v2/icone/pop/clessidra-calma.webp" alt="" width="480" height="480" loading="lazy"></span><span class="faq__testo">Quanto dura una procedura di sovraindebitamento?</span><span class="faq__più" aria-hidden="true">+</span></summary>
+          <summary><span class="chip chip--faq" aria-hidden="true"><img src="../assets/img/v2/icone/pop/clessidra-calma.webp" alt="" width="480" height="480" loading="lazy"></span><span class="faq__testo">Quanto dura una procedura di sovraindebitamento?</span><span class="faq__più" aria-hidden="true">+</span></summary>
           <div class="faq__corpo"><p>Dipende dalla procedura e dal tribunale: in genere servono <span class="hi">mesi per l'omologazione</span> e alcuni anni per completare un piano. Dopo la prima analisi ti diamo una stima riferita al tuo caso.</p></div>
         </details>
         <details class="faq__voce">
-          <summary><span class="chip chip--faq" aria-hidden="true"><img src="assets/img/v2/icone/pop/italia.webp" alt="" width="480" height="480" loading="lazy"></span><span class="faq__testo">Lavorate in tutta Italia?</span><span class="faq__più" aria-hidden="true">+</span></summary>
+          <summary><span class="chip chip--faq" aria-hidden="true"><img src="../assets/img/v2/icone/pop/italia.webp" alt="" width="480" height="480" loading="lazy"></span><span class="faq__testo">Lavorate in tutta Italia?</span><span class="faq__più" aria-hidden="true">+</span></summary>
           <div class="faq__corpo"><p>Sì. Le consulenze si svolgono <span class="sotto">in videochiamata<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 9 C 45 4, 90 12, 130 7 S 185 6, 196 9"/></svg></span> e seguiamo clienti anche residenti all'estero.</p></div>
         </details>
         <details class="faq__voce">
-          <summary><span class="chip chip--faq" aria-hidden="true"><img src="assets/img/v2/icone/pop/lucchetto.webp" alt="" width="480" height="480" loading="lazy"></span><span class="faq__testo">Le mie informazioni restano riservate?</span><span class="faq__più" aria-hidden="true">+</span></summary>
+          <summary><span class="chip chip--faq" aria-hidden="true"><img src="../assets/img/v2/icone/pop/lucchetto.webp" alt="" width="480" height="480" loading="lazy"></span><span class="faq__testo">Le mie informazioni restano riservate?</span><span class="faq__più" aria-hidden="true">+</span></summary>
           <div class="faq__corpo"><p>Sì, siamo tenuti al <span class="marca-salvia marca-salvia--chiaro">segreto professionale</span>.</p></div>
         </details>
       </div>
@@ -436,7 +465,7 @@
     <span class="deco deco--sparkle deco--ambra" style="right:14%; top:16%; width:16px; --fd:1.7s" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 C13 8 16 11 22 12 C16 13 13 16 12 22 C11 16 8 13 2 12 C8 11 11 8 12 2 Z"/></svg></span>
     <div class="colonna colonna--centro">
       <figure class="verifica__porta rv" aria-hidden="true">
-        <span class="arco-clip arco-clip--porta"><img src="assets/img/v2/foto/porta-luce.webp" alt="" width="688" height="1024" loading="lazy"></span>
+        <span class="arco-clip arco-clip--porta"><img src="../assets/img/v2/foto/porta-luce.webp" alt="" width="688" height="1024" loading="lazy"></span>
       </figure>
       <h2 class="verifica__statement" id="verifica-title">
         <span class="riga"><span class="mt">Prima si interviene,</span></span>
@@ -515,7 +544,7 @@
 <footer class="footer">
   <div class="contenitore footer__griglia">
     <a class="footer__logo" href="#top" aria-label="centraleLegale">
-      <img src="assets/img/Marchio.Colori.svg" alt="centraleLegale" width="220" height="68">
+      <img src="../assets/img/Marchio.Colori.svg" alt="centraleLegale" width="220" height="68">
     </a>
     <address class="footer__dati">
       <strong>H24 Professional Solution S.r.l.</strong><br>
