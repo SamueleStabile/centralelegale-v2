@@ -6,5 +6,6 @@
   "cutout_job": "3fc2b134-1f5a-4710-8041-d17387adb438",
   "generated": "2026-09-18",
   "role": "hero-figura",
-  "note": "Figura professionale illustrativa AI (nessuna persona reale), scontornata"
+  "note": "Figura professionale illustrativa AI (nessuna persona reale), scontornata",
+  "cutout_fix": "2026-09-18: bordo decontaminato in locale (matting a fondo bianco noto: alpha e colore del bordo ricalcolati da C = a*F + (1-a)*W, F propagato dal nucleo opaco; buchi di fondo tra le ciocche resi trasparenti; viso, occhi e tablet protetti). Via ogni alone chiaro."
 }

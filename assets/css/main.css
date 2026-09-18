@@ -59,6 +59,7 @@
   --ease-soft: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-draw: cubic-bezier(0.62, 0, 0.12, 1);
   --gutter: clamp(22px, 5vw, 88px);
+  --box-hero: 1440px;              /* hero e header: contenuto boxed a 1440 */
   --respiro: clamp(110px, 15vw, 230px);
 }
 
@@ -216,19 +217,24 @@ html.js .in .freccia-tec .punta, html.js .freccia-tec.in .punta { transition-del
    ============================================================ */
 .nav {
   position: absolute; top: 0; left: 0; right: 0; z-index: 40;
-  padding: 24px var(--gutter);
+  padding: 24px 0;
 }
+/* stesso box dell'hero: logo sull'inizio, ultima voce sulla fine */
 .nav__interno {
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  width: 100%; max-width: 1280px; margin-inline: auto;
+  width: 100%; max-width: calc(var(--box-hero) + 2 * var(--gutter)); margin-inline: auto;
+  padding-inline: var(--gutter);
 }
-.nav__logo img { height: 74px; width: auto; }
+.nav__logo { display: block; line-height: 0; }
+/* il marchio ha aria nel viewBox (34.24/841.89): lo porto a filo col testo dell'hero */
+.nav__logo img { height: 74px; width: auto; transform: translateX(-4.07%); }
 .nav__destra { display: flex; align-items: center; gap: 26px; }
 .nav__voce { font-family: var(--sans); font-weight: 500; font-size: 13.5px; color: var(--avorio); text-decoration: none; }
 .nav__voce:hover { color: var(--salvia-chiara); }
 .btn--nav { padding: 12px 22px; font-size: 11.5px; }
-html.js .btn--nav { opacity: 0; transform: translateY(-6px); pointer-events: none; visibility: hidden; transition: opacity 300ms var(--ease-soft), transform 300ms var(--ease-soft), visibility 0s 300ms; }
-html.js .nav--cta .btn--nav { opacity: 1; transform: none; pointer-events: auto; visibility: visible; transition: opacity 300ms var(--ease-soft), transform 300ms var(--ease-soft); }
+/* la CTA in nav non occupa spazio finché è nascosta: le voci chiudono sul bordo dell'hero */
+html.js .btn--nav { display: none; }
+html.js .nav--cta .btn--nav { display: inline-flex; }
 @media (max-width: 860px) {
   .nav__voce { display: none; }
   .nav__logo img { height: 58px; }
@@ -240,7 +246,7 @@ html.js .nav--cta .btn--nav { opacity: 1; transform: none; pointer-events: auto;
   background: rgba(13, 47, 55, 0.9);
   -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--hairline-scuro-forte);
-  padding: 10px var(--gutter);
+  padding: 10px max(var(--gutter), calc((100% - var(--box-hero)) / 2));   /* stesso box 1440 dell'hero */
   transform: translateY(-110%);
   visibility: hidden;
   transition: transform 550ms var(--ease-soft), visibility 0s 550ms;
@@ -302,11 +308,13 @@ html.js .btn--hero { animation: respiro 5.5s ease-in-out infinite 2s; }
   min-height: 100vh; min-height: 100svh;
   display: flex; align-items: stretch;
   padding-top: clamp(96px, 12vh, 130px);
+  /* spazio fuori dal box 1440 (per tenere le decorazioni nel margine, mai sul testo) */
+  --fuori-box: max(0px, (100% - var(--box-hero) - 2 * var(--gutter)) / 2);
 }
 .hero__grid {
   display: grid; grid-template-columns: minmax(0, 6.8fr) minmax(0, 5.2fr);
   align-items: center; gap: clamp(24px, 3vw, 56px);
-  width: 100%; max-width: 1280px; margin-inline: auto;
+  width: 100%; max-width: calc(var(--box-hero) + 2 * var(--gutter)); margin-inline: auto;
   padding: 0 var(--gutter) clamp(48px, 7vh, 90px);
   position: relative; z-index: 1;
 }
@@ -329,16 +337,20 @@ html.js .marca::before { transform-origin: left center; transform: skewX(-4deg) 
 html.js .in .marca::before, html.js .marca.in::before { transform: skewX(-4deg) scaleX(1); }
 .hero__sub { margin: 0 0 clamp(14px, 2vh, 22px) 0; max-width: 30ch; font-size: clamp(19px, 1.8vw, 24px); line-height: 1.5; color: var(--avorio-85); font-family: var(--sans); font-weight: 400; }
 .hero__sub strong { font-weight: 600; color: var(--bianco); }
-.hero__lead { margin: 0 0 clamp(48px, 6.5vh, 72px) 0; max-width: 52ch; font-size: 15.5px; line-height: 1.7; color: var(--avorio-70); }
-.hero__azione { position: relative; display: inline-flex; flex-direction: column; align-items: center; }
-/* appunto + freccia sopra la CTA */
-.con-appunto--hero { position: absolute; left: 0; right: 0; top: 0; height: 0; }
-.con-appunto--hero .appunto { position: absolute; left: 6px; top: -58px; --rot: -6deg; }
-.con-appunto--hero .freccia-tec { position: absolute; left: 148px; top: -50px; width: 46px; }
-/* microfatti: i due fatti di servizio, centrati e in evidenza */
+.hero__lead { margin: 0 0 clamp(14px, 2.4vh, 26px) 0; max-width: 52ch; font-size: 15.5px; line-height: 1.7; color: var(--avorio-70); }
+/* CTA a filo sinistro col testo */
+.hero__azione { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; }
+/* appunto + freccia sopra la CTA, uno sopra l'altro sullo stesso asse */
+.con-appunto--hero {
+  position: relative; display: inline-flex; flex-direction: column; align-items: center; gap: 2px;
+  margin: 0 0 8px 34px;
+}
+.con-appunto--hero .appunto { position: static; display: block; --rot: -4deg; }
+.con-appunto--hero .freccia-tec { position: static; display: block; width: 26px; }
+/* microfatti: i due fatti di servizio, allineati alla CTA */
 .microfatti {
-  list-style: none; margin: 18px 0 0 0; padding: 0;
-  display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+  list-style: none; margin: 20px 0 0 0; padding: 0;
+  display: flex; align-items: center; justify-content: flex-start; gap: 10px 16px; flex-wrap: wrap;
 }
 .microfatti li {
   display: inline-flex; align-items: center; gap: 9px;
@@ -352,7 +364,8 @@ html.js .in .marca::before, html.js .marca.in::before { transform: skewX(-4deg) 
 .microfatti li img { width: 26px; height: 26px; object-fit: contain; flex: none; background: var(--avorio); border-radius: 50%; padding: 2px; }
 
 /* colonna figura — arco con chiave di volta come la v1 */
-.hero__figura { position: relative; margin: 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: clamp(12px, 2vh, 28px); }
+/* l'arco (con la sua linea esterna a -14px) chiude sul bordo destro del box, come le voci del menu */
+.hero__figura { position: relative; margin: 0; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 14px clamp(12px, 2vh, 28px); }
 .hero__arch { position: relative; width: min(100%, 430px); }
 .hero__arch::before {
   content: ""; position: absolute; top: -14px; right: -14px; bottom: 0; left: -14px;
@@ -956,14 +969,15 @@ html.js .in .riga > span, html.js .riga.in > span { transform: translateY(0); }
   .hero__content { display: contents; }
   .hero__title { order: 1; margin-bottom: 0; }
   .hero__sub { order: 2; margin: 0 0 4px 0; max-width: none; }
-  .hero__figura { order: 3; margin: 4px auto 12px; width: min(68%, 265px); }
-  .hero__azione { order: 4; margin-top: 42px; display: flex; }
+  .hero__figura { order: 3; margin: 4px auto 12px; width: min(68%, 265px); padding-inline: 0; justify-content: center; }
+  /* l'appunto sale nella fascia di "dalla tua parte" (lato opposto), sotto la fine della linea d'arco */
+  .hero__azione { order: 4; margin-top: -24px; display: flex; }
   .hero__lead { order: 5; margin: 30px 0 0 0; }
   .appunto--figura { bottom: -24px; }
   .hero__arch-chiave { top: -26px; width: 38px; height: 28px; }
-  .con-appunto--hero .appunto { left: 2px; top: -48px; }
-  .con-appunto--hero .freccia-tec { left: 126px; top: -42px; width: 36px; }
-  .microfatti { margin-top: 10px; gap: 6px; }
+  .con-appunto--hero { margin: 0 0 8px 26px; }
+  .con-appunto--hero .freccia-tec { width: 16px; }
+  .microfatti { margin-top: 12px; gap: 12px; }
   .microfatti li { font-size: 11.5px; padding: 5px 12px 5px 7px; gap: 6px; }
   .microfatti li img { width: 20px; height: 20px; }
 }
@@ -976,10 +990,21 @@ html.js .in .riga > span, html.js .riga.in > span { transform: translateY(0); }
   /* niente blur animato sui telefoni: solo opacity+transform */
   html.js .rv { filter: none; transition: opacity 900ms var(--ease), transform 900ms var(--ease); transition-delay: var(--d, 0ms); }
   .hero__title { font-size: clamp(38px, 10.4vw, 54px); }
+  .hero__azione { align-items: stretch; }
   .hero__azione .btn { width: 100%; }
+  .con-appunto--hero { align-self: flex-start; }
+  .hero__azione .microfatti { justify-content: center; }
   .reframe .blocco { font-size: 17.5px; }
   .statement { font-size: clamp(30px, 8.6vw, 44px); }
 }
+/* desktop bassi (1280x720, 1366x768): l'hero resta dentro il primo viewport */
+@media (min-width: 981px) and (max-height: 820px) {
+  .hero__title { font-size: clamp(44px, min(7.2vw, 11vh), 88px); }
+  .con-appunto--hero { margin-bottom: 4px; }
+  .con-appunto--hero .freccia-tec { width: 20px; }
+  .microfatti { margin-top: 14px; }
+}
 @media (max-width: 640px) {
+  html:not(.js) .btn--nav { display: none; }
   .appunto--form, .ripresa .con-appunto { display: none; }
 }

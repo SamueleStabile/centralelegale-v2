@@ -41,6 +41,8 @@ html.js .tema-chiaro .btn--hero { animation-name: respiro-notte; }
 .tema-chiaro .hero__arch::before { border-color: rgba(17, 59, 68, 0.35); }
 .tema-chiaro .hero .alone .a1 { background: radial-gradient(circle, rgba(59, 138, 100, 0.14), transparent 68%); }
 .tema-chiaro .hero .alone .a2 { background: radial-gradient(circle, rgba(59, 138, 100, 0.1), transparent 70%); }
+/* il marchio a colori ha più aria a sinistra nel viewBox (54/841.89) */
+.tema-chiaro .nav__logo img { transform: translateX(-6.41%); }
 .tema-chiaro .nav__voce { color: var(--notte); }
 .tema-chiaro .nav__voce:hover { color: var(--bosco-testo); }
 .tema-chiaro .hero :focus-visible { outline-color: var(--bosco); }
@@ -79,8 +81,8 @@ html.js .tema-chiaro .btn--hero { animation-name: respiro-notte; }
   <!-- 01 · HERO — doppia colonna come la v1, marca verde, appunti verso la CTA -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="alone" aria-hidden="true"><i class="a1"></i><i class="a2"></i></div>
-    <span class="deco deco--sparkle" style="left:6%; top:18%; width:22px; --fd:0.6s" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 C13 8 16 11 22 12 C16 13 13 16 12 22 C11 16 8 13 2 12 C8 11 11 8 12 2 Z"/></svg></span>
-    <span class="deco deco--asterisco" style="right:8%; top:14%; width:30px; --rot:12deg; --fd:1.4s" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3 V29 M5 9.5 L27 22.5 M27 9.5 L5 22.5"/></svg></span>
+    <span class="deco deco--sparkle" style="left:calc(var(--fuori-box) + max(2px, var(--gutter) / 2 - 11px)); top:18%; width:22px; --fd:0.6s" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 C13 8 16 11 22 12 C16 13 13 16 12 22 C11 16 8 13 2 12 C8 11 11 8 12 2 Z"/></svg></span>
+    <span class="deco deco--asterisco" style="right:calc(var(--fuori-box) + max(10px, var(--gutter) / 2 - 15px)); top:14%; width:30px; --rot:12deg; --fd:1.4s" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3 V29 M5 9.5 L27 22.5 M27 9.5 L5 22.5"/></svg></span>
     <div class="hero__grid">
       <div class="hero__content">
         <h1 class="hero__title" id="hero-title">
@@ -93,7 +95,7 @@ html.js .tema-chiaro .btn--hero { animation-name: respiro-notte; }
           <span class="con-appunto con-appunto--hero" aria-hidden="true">
             <span class="appunto">il primo passo</span>
             <span class="freccia-tec">
-              <svg viewBox="0 0 60 46"><path pathLength="1" d="M52 4 C 40 16, 26 26, 12 38"/><path pathLength="1" class="punta" d="M12 38 l12 -3 m-12 3 l3 -12"/></svg>
+              <svg viewBox="0 0 30 48"><path pathLength="1" d="M15 3 C 19 16, 19 30, 15 44"/><path pathLength="1" class="punta" d="M15 44 l6 -7 m-6 7 l-6 -7"/></svg>
             </span>
           </span>
           <a class="btn btn--hero" id="cta-hero" href="#verifica">Cancella il Debito <span class="btn__freccia" aria-hidden="true">→</span></a>
