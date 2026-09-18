@@ -1,14 +1,13 @@
 /* ============================================================
-   centraleLegale — landing v2 "La domanda giusta"
-   Direct response onesto, dark-first: Petrolio Notte dominante,
-   isole avorio nei momenti di prova. Una sola CTA, in bianco
-   tecnico su scuro / notte su avorio: l'ambra è VIETATA nelle
-   CTA e in ogni elemento interattivo; è consentita solo in tre
-   dettagli (sottolineatura hero, cerchiature "40 giorni",
-   numero "0 promesse").
-   Tipografia bivoce come il marchio: Momo Trust + Fraunces.
-   Secondo livello di lettura tecnico: frecce monoline, cerchi,
-   marcatori, note ruotate. Niente grana, niente atelier.
+   centraleLegale — landing v2.1 "La domanda giusta"
+   Piattaforma legale moderna, look giovane e interattivo.
+   Dark-first (Petrolio Notte) con isole avorio ad arco, icone
+   sticker pop su chip, appunti a mano + frecce che guidano alla
+   CTA, decorazioni (sparkle, asterischi, archi) e gradiente
+   "alba" nella chiusa. Una sola CTA, in bianco tecnico su scuro
+   / notte su avorio: l'ambra è VIETATA nelle CTA e in ogni
+   elemento interattivo; consentita solo in dettagli non
+   interattivi (cerchiature "40 giorni", "0 promesse", sparkle).
    ============================================================ */
 
 /* ---------- Font ---------- */
@@ -20,6 +19,7 @@
 @font-face { font-family: 'Poppins'; src: url('../fonts/Poppins-SemiBold.woff2') format('woff2'), url('../fonts/Poppins-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
 @font-face { font-family: 'Source Sans 3'; src: url('../fonts/SourceSans3-Variable.woff2') format('woff2-variations'), url('../fonts/SourceSans3-Variable.ttf') format('truetype-variations'); font-weight: 300 900; font-style: normal; font-display: swap; }
 @font-face { font-family: 'Source Sans 3'; src: url('../fonts/SourceSans3-Italic-Variable.woff2') format('woff2-variations'), url('../fonts/SourceSans3-Italic-Variable.ttf') format('truetype-variations'); font-weight: 300 900; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Caveat'; src: url('../fonts/Caveat-SemiBold.woff2') format('woff2'), url('../fonts/Caveat-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
 
 /* ---------- Token ---------- */
 :root {
@@ -52,6 +52,7 @@
   --serifb: 'Fraunces', 'Times New Roman', serif;
   --sans: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
   --testo: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  --mano: 'Caveat', 'Bradley Hand', 'Segoe Script', cursive;
 
   --track-caps: 0.18em;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -82,7 +83,7 @@ img { max-width: 100%; display: block; }
 a { color: var(--salvia-chiara); text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
 a:hover { color: var(--avorio); }
 :focus-visible { outline: 2px solid var(--salvia-chiara); outline-offset: 3px; }
-.isola :focus-visible { outline-color: var(--bosco); }
+.isola :focus-visible, .verifica__carta :focus-visible, .footer :focus-visible { outline-color: var(--bosco); }
 
 .caps { font-family: var(--sans); font-weight: 600; text-transform: uppercase; letter-spacing: var(--track-caps); }
 .num { font-variant-numeric: tabular-nums; }
@@ -90,7 +91,7 @@ a:hover { color: var(--avorio); }
 
 .contenitore { max-width: 1200px; margin-inline: auto; padding-inline: var(--gutter); }
 .colonna { max-width: 720px; margin-inline: auto; padding-inline: var(--gutter); }
-.colonna--larga { max-width: 860px; }
+.colonna--larga { max-width: 880px; }
 .colonna--centro { text-align: center; }
 
 /* Voci bivoce: Momo Trust (contemporanea) + Fraunces (autorevole) */
@@ -105,7 +106,7 @@ a:hover { color: var(--avorio); }
 }
 .kicker::before { content: ""; width: 34px; height: 2px; background: var(--salvia); flex: none; }
 .kicker--scuro { color: var(--salvia-chiara); }
-.sezione__testa { margin-bottom: clamp(56px, 7vw, 104px); }
+.sezione__testa { margin-bottom: clamp(56px, 7vw, 104px); position: relative; }
 .sezione__testa--centro { text-align: center; }
 .sezione__testa--centro .kicker { justify-content: center; }
 .sezione__testa--centro .kicker::after { content: ""; width: 34px; height: 2px; background: var(--salvia); flex: none; }
@@ -118,7 +119,7 @@ a:hover { color: var(--avorio); }
 }
 .sezione__titolo--chiaro { color: var(--bianco); }
 
-/* ---------- Capitoli: numero gigante in filigrana ---------- */
+/* ---------- Capitoli in filigrana ---------- */
 .capitolo { position: relative; overflow: hidden; overflow: clip; }
 .capitolo::before {
   content: attr(data-capitolo);
@@ -138,6 +139,79 @@ a:hover { color: var(--avorio); }
 html:not(.js) .lettura { display: none; }
 
 /* ============================================================
+   DECORAZIONI — sparkle, asterischi, squiggle, archi
+   ============================================================ */
+.deco { position: absolute; pointer-events: none; z-index: 1; color: rgba(143, 203, 170, 0.4); transform: rotate(var(--rot, 0deg)); }
+.deco svg { display: block; width: 100%; height: auto; overflow: visible; }
+.deco--sparkle svg path { fill: currentColor; stroke: none; }
+.deco--asterisco svg path, .deco--squiggle svg path, .deco--arco svg path { stroke: currentColor; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.deco--ambra { color: rgba(198, 138, 46, 0.55); }
+.deco--su-chiaro { color: rgba(44, 111, 79, 0.35); }
+html.js .deco { animation: fluttua 9s ease-in-out infinite; animation-delay: var(--fd, 0s); }
+html.js .deco--sparkle { animation: brilla 5s ease-in-out infinite; animation-delay: var(--fd, 0s); }
+@keyframes fluttua {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-12px) rotate(calc(var(--rot, 0deg) + 4deg)); }
+}
+@keyframes brilla {
+  0%, 100% { transform: scale(1) rotate(var(--rot, 0deg)); opacity: 1; }
+  50% { transform: scale(1.35) rotate(calc(var(--rot, 0deg) + 18deg)); opacity: 0.55; }
+}
+
+/* ---------- Appunti a mano (Caveat) + frecce monoline ---------- */
+.con-appunto { position: relative; display: inline-block; }
+.appunto {
+  position: absolute; z-index: 3;
+  font-family: var(--mano); font-weight: 600;
+  font-size: clamp(19px, 1.5vw, 23px); line-height: 1.05;
+  color: var(--salvia-chiara);
+  transform: rotate(var(--rot, -5deg));
+  pointer-events: none; white-space: nowrap;
+}
+html.js .appunto { opacity: 0; transition: opacity 600ms var(--ease) 550ms; }
+html.js .in .appunto, html.js .appunto.in { opacity: 1; }
+html:not(.js) .appunto { opacity: 1; }
+.freccia-tec { position: absolute; pointer-events: none; z-index: 2; }
+.freccia-tec svg { display: block; width: 100%; height: auto; overflow: visible; }
+.freccia-tec path { stroke: var(--salvia-chiara); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+html.js .freccia-tec path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+html.js .in .freccia-tec path, html.js .freccia-tec.in path { stroke-dashoffset: 0; transition: stroke-dashoffset 800ms var(--ease-draw) 500ms; }
+html.js .in .freccia-tec .punta, html.js .freccia-tec.in .punta { transition-delay: 1150ms; transition-duration: 280ms; }
+/* varianti su superfici chiare */
+.isola .appunto, .verifica__carta .appunto, .appunto--su-chiaro { color: var(--bosco-testo); }
+.isola .freccia-tec path { stroke: var(--bosco); }
+
+/* ---------- Chip icona (sticker su finestrella ad arco) ---------- */
+.chip {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--avorio);
+  border-radius: 999px 999px 14px 14px;
+  box-shadow: 0 3px 0 rgba(13, 47, 55, 0.28);
+  flex: none;
+  transition: transform 300ms var(--ease-soft);
+}
+.chip img { width: 76%; height: 76%; object-fit: contain; }
+.chip--s { width: 58px; height: 58px; margin-bottom: 16px; }
+.chip--fronte { width: 84px; height: 84px; }
+.chip--fatto { width: 84px; height: 84px; }
+.chip--riga { position: relative; width: 52px; height: 52px; }
+.chip--passo { width: 54px; height: 54px; }
+.chip--faq { width: 48px; height: 48px; }
+.chip--badge { width: 46px; height: 46px; }
+.isola .chip, .verifica__carta .chip { background: var(--bianco); box-shadow: 0 3px 0 rgba(17, 59, 68, 0.18); border: 1px solid var(--hairline-chiaro); }
+.fatto:hover .chip, .faq__voce summary:hover .chip, .rigat:hover .chip, .fronte:hover .chip { transform: rotate(-5deg) scale(1.08); }
+.chip--no img { filter: grayscale(0.45); opacity: 0.85; }
+.badge {
+  position: absolute; right: -7px; bottom: -7px;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.badge svg { width: 12px; height: 12px; }
+.badge svg path { fill: none; stroke: var(--avorio); stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+.badge--v { background: var(--bosco); }
+.badge--x { background: var(--notte-75); }
+
+/* ============================================================
    NAV + STICKY BAR
    ============================================================ */
 .nav {
@@ -152,7 +226,7 @@ html:not(.js) .lettura { display: none; }
 .btn--nav { padding: 12px 22px; font-size: 11.5px; }
 html.js .btn--nav { opacity: 0; transform: translateY(-6px); pointer-events: none; visibility: hidden; transition: opacity 300ms var(--ease-soft), transform 300ms var(--ease-soft), visibility 0s 300ms; }
 html.js .nav--cta .btn--nav { opacity: 1; transform: none; pointer-events: auto; visibility: visible; transition: opacity 300ms var(--ease-soft), transform 300ms var(--ease-soft); }
-@media (max-width: 720px) {
+@media (max-width: 860px) {
   .nav__voce { display: none; }
   .nav__logo img { height: 42px; }
 }
@@ -178,8 +252,8 @@ html:not(.js) .stickybar { display: none; }
 }
 
 /* ============================================================
-   BOTTONE — bianco tecnico su scuro / notte su avorio,
-   spigoli vivi, sheen + respiro. Mai ambra.
+   BOTTONE — bianco tecnico su scuro / notte su avorio.
+   Mai ambra su elementi interattivi.
    ============================================================ */
 .btn {
   position: relative; overflow: hidden;
@@ -218,56 +292,70 @@ html.js .btn--hero { animation: respiro 5.5s ease-in-out infinite 2s; }
 .microcopy { margin: 14px 0 0 0; font-size: 14px; color: var(--avorio-70); }
 
 /* ============================================================
-   01 · HERO
+   01 · HERO — doppia colonna
    ============================================================ */
 .hero {
   position: relative; overflow: hidden; overflow: clip;
   min-height: 100vh; min-height: 100svh;
-  display: flex; align-items: center; justify-content: center;
-  padding: clamp(120px, 16vh, 180px) 0 clamp(80px, 10vh, 140px);
-  text-align: center;
+  display: flex; align-items: stretch;
+  padding-top: clamp(96px, 12vh, 130px);
 }
-.hero__azione { position: relative; display: inline-block; }
-.hero__arco {
-  position: absolute; left: 50%; top: -72px; transform: translateX(-50%);
-  width: min(88vw, 620px); z-index: -1; pointer-events: none;
+.hero__grid {
+  display: grid; grid-template-columns: minmax(0, 6.8fr) minmax(0, 5.2fr);
+  align-items: center; gap: clamp(24px, 3vw, 56px);
+  width: 100%; max-width: 1280px; margin-inline: auto;
+  padding: 0 var(--gutter) clamp(48px, 7vh, 90px);
+  position: relative; z-index: 1;
 }
-.hero__arco svg { display: block; width: 100%; height: auto; overflow: visible; }
-.hero__arco path { stroke: rgba(143, 203, 170, 0.3); stroke-width: 2; fill: none; stroke-linecap: round; }
-.hero__chiave {
-  position: absolute; top: 5.2%; left: 50%; transform: translateX(-50%);
-  width: clamp(36px, 8.5%, 54px); aspect-ratio: 64 / 46;
-  background: var(--salvia);
-  clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
-}
-html.js .hero__arco path { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1400ms var(--ease-draw) 500ms; }
-html.js .hero__arco.in path { stroke-dashoffset: 0; }
-html.js .hero__chiave { opacity: 0; transform: translateX(-50%) translateY(-12px); transition: opacity 600ms var(--ease) 1700ms, transform 600ms var(--ease) 1700ms; }
-html.js .hero__arco.in .hero__chiave { opacity: 1; transform: translateX(-50%) translateY(0); }
-.hero__colonna { position: relative; z-index: 1; max-width: 880px; padding-inline: var(--gutter); }
-.hero__kicker { margin: 0 0 clamp(24px, 3.5vh, 40px) 0; font-size: 12px; color: var(--salvia-chiara); }
+.hero__kicker { margin: 0 0 clamp(22px, 3vh, 34px) 0; font-size: 12px; color: var(--salvia-chiara); }
 .hero__title {
-  margin: 0 0 clamp(24px, 3.4vh, 38px) 0;
+  margin: 0 0 clamp(22px, 3vh, 34px) 0;
   font-weight: 400;
-  font-size: clamp(46px, 8.6vw, 92px);
-  line-height: 1.04; letter-spacing: -0.02em;
-  color: var(--avorio);
+  font-size: clamp(44px, 7.2vw, 88px);
+  line-height: 1.06; letter-spacing: -0.02em;
+  color: var(--bianco);
 }
-.hero__title .fr { color: var(--bianco); position: relative; display: inline-block; }
-.sotto-svg { position: absolute; left: -2%; bottom: -0.24em; width: 104%; height: 0.2em; overflow: visible; pointer-events: none; }
-.sotto-svg path { stroke: var(--ambra); stroke-width: 9; fill: none; stroke-linecap: round; opacity: 0.9; }
-html.js .sotto-svg path { stroke-dasharray: 1; stroke-dashoffset: 1; }
-html.js .in .sotto-svg path { stroke-dashoffset: 0; transition: stroke-dashoffset 800ms var(--ease-draw) 900ms; }
-.hero__sub { margin: 0 auto clamp(18px, 2.6vh, 28px); max-width: 36ch; font-size: clamp(19px, 2vw, 24px); line-height: 1.5; color: var(--avorio-85); font-family: var(--sans); font-weight: 400; }
-.hero__sub em { font-style: normal; color: var(--avorio-70); }
+/* marca verde come la v1: marcatore pieno che si disegna dietro la riga decisiva */
+.marca { position: relative; isolation: isolate; color: var(--bianco); padding: 0.02em 0.14em; display: inline-block; }
+.marca::before {
+  content: ""; position: absolute; inset: 0.08em -0.06em 0.02em; z-index: -1;
+  background: var(--petrolio);
+  transform: skewX(-4deg);
+}
+html.js .marca::before { transform-origin: left center; transform: skewX(-4deg) scaleX(0); transition: transform 700ms var(--ease-draw) 500ms; }
+html.js .in .marca::before, html.js .marca.in::before { transform: skewX(-4deg) scaleX(1); }
+.hero__sub { margin: 0 0 clamp(14px, 2vh, 22px) 0; max-width: 30ch; font-size: clamp(19px, 1.8vw, 24px); line-height: 1.5; color: var(--avorio-85); font-family: var(--sans); font-weight: 400; }
 .hero__sub strong { font-weight: 600; color: var(--bianco); }
-.hero__lead { margin: 0 auto clamp(52px, 7vh, 76px); max-width: 54ch; font-size: 15.5px; line-height: 1.7; color: var(--avorio-70); }
-.freccia-tec { position: absolute; pointer-events: none; z-index: 2; }
-.freccia-tec svg { display: block; width: 100%; height: auto; overflow: visible; }
-.freccia-tec path { stroke: var(--salvia-chiara); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-html.js .freccia-tec path { stroke-dasharray: 1; stroke-dashoffset: 1; }
-html.js .in .freccia-tec path, html.js .freccia-tec.in path { stroke-dashoffset: 0; transition: stroke-dashoffset 800ms var(--ease-draw) 500ms; }
-html.js .in .freccia-tec .punta, html.js .freccia-tec.in .punta { transition-delay: 1150ms; transition-duration: 280ms; }
+.hero__lead { margin: 0 0 clamp(48px, 6.5vh, 72px) 0; max-width: 52ch; font-size: 15.5px; line-height: 1.7; color: var(--avorio-70); }
+.hero__azione { position: relative; display: inline-block; }
+.hero__azione .microcopy { max-width: 40ch; }
+
+/* colonna figura — arco con chiave di volta come la v1 */
+.hero__figura { position: relative; margin: 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: clamp(12px, 2vh, 28px); }
+.hero__arch { position: relative; width: min(100%, 430px); }
+.hero__arch::before {
+  content: ""; position: absolute; top: -14px; right: -14px; bottom: 0; left: -14px;
+  border: 1.5px solid rgba(143, 203, 170, 0.5); border-bottom: 0;
+  border-radius: 999px 999px 0 0; pointer-events: none;
+}
+.hero__arch-chiave {
+  position: absolute; top: -36px; left: 50%; transform: translateX(-50%);
+  width: 48px; height: 36px; background: var(--salvia);
+  clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
+  z-index: 2;
+}
+.hero__arch-clip {
+  display: block; position: relative; overflow: hidden;
+  border-radius: 999px 999px 0 0;
+  aspect-ratio: 3 / 3.9;
+  background: radial-gradient(120% 90% at 50% 8%, var(--petrolio) 0%, var(--notte) 68%);
+}
+.hero__figura-img { width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%; }
+html.js .hero__arch-clip .hero__figura-img { transform: scale(1.06); transform-origin: 50% 20%; transition: transform 1600ms var(--ease); }
+html.js .in .hero__arch-clip .hero__figura-img { transform: scale(1); }
+html.js .hero__arch-chiave { opacity: 0; transform: translateX(-50%) translateY(-10px); transition: opacity 700ms var(--ease) 550ms, transform 700ms var(--ease) 550ms; }
+html.js .in .hero__arch-chiave { opacity: 1; transform: translateX(-50%) translateY(0); }
+.appunto--figura { position: absolute; right: 4%; bottom: -34px; }
 
 /* ---------- Aloni ---------- */
 .alone { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
@@ -284,16 +372,16 @@ html.js .alone .a2 { animation: alone-drift 28s ease-in-out infinite reverse; }
 /* ============================================================
    02 · DATA-STRIP
    ============================================================ */
-.numeri { border-block: 1px solid var(--hairline-scuro); background: var(--notte); position: relative; z-index: 2; }
+.numeri { border-block: 1px solid var(--hairline-scuro); background: linear-gradient(180deg, var(--notte) 0%, #10373f 100%); position: relative; z-index: 2; }
 .numeri__griglia { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1280px; margin-inline: auto; }
-.numero { padding: clamp(36px, 4.5vw, 64px) clamp(20px, 2.5vw, 44px); position: relative; }
+.numero { padding: clamp(36px, 4.5vw, 60px) clamp(20px, 2.5vw, 44px); position: relative; }
 .numero + .numero::before { content: ""; position: absolute; left: 0; top: 18%; bottom: 18%; width: 1px; background: var(--hairline-scuro); transform-origin: top center; }
 html.js .numero + .numero::before { transform: scaleY(0); transition: transform 900ms var(--ease-draw) 300ms; }
 html.js .numero.in + .numero.in::before, html.js .numero.in::before { transform: scaleY(1); }
 .numero__cifra {
   margin: 0 0 10px 0; display: flex; align-items: baseline; gap: 10px;
   font-family: var(--momo); font-weight: 400;
-  font-size: clamp(52px, 6.5vw, 104px); line-height: 0.9;
+  font-size: clamp(52px, 6.5vw, 96px); line-height: 0.9;
   color: var(--bianco); letter-spacing: -0.02em;
 }
 .numero__unita { font-family: var(--serifb); font-weight: 400; font-style: italic; font-size: 0.34em; color: var(--salvia-chiara); letter-spacing: 0; }
@@ -306,10 +394,23 @@ html.js .numero.in + .numero.in::before, html.js .numero.in::before { transform:
   .numero:nth-child(n+3) { border-top: 1px solid var(--hairline-scuro); }
 }
 @media (max-width: 460px) {
-  .numeri__griglia { grid-template-columns: 1fr 1fr; }
   .numero { padding: 26px 18px; }
   .numero__cifra { font-size: 44px; }
+  .chip--s { width: 48px; height: 48px; margin-bottom: 12px; }
 }
+
+/* ---------- Evidenziatore parziale (seconda lettura) ---------- */
+.hi {
+  background-image: linear-gradient(to top, var(--marker-salvia-chiaro), var(--marker-salvia-chiaro));
+  background-repeat: no-repeat;
+  background-size: 100% 0.55em;
+  background-position: 0 84%;
+  padding-inline: 0.05em;
+  box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}
+.hi--scuro { background-image: linear-gradient(to top, var(--marker-salvia-scuro), var(--marker-salvia-scuro)); }
+html.js .rv .hi, html.js .riga .hi { background-size: 0% 0.55em; transition: background-size 650ms var(--ease-draw) 300ms; }
+html.js .rv.in .hi, html.js .in .hi { background-size: 100% 0.55em; }
 
 /* ============================================================
    03 · REFRAME
@@ -318,7 +419,7 @@ html.js .numero.in + .numero.in::before, html.js .numero.in::before { transform:
 .reframe .colonna { max-width: 880px; }
 .reframe .blocco { margin: 0 auto clamp(48px, 7vw, 96px); max-width: 48ch; font-size: clamp(18px, 1.6vw, 21px); color: var(--avorio-85); }
 .reframe .blocco strong { color: var(--bianco); font-weight: 600; }
-.reframe .con-nota { display: block; }
+.reframe .con-nota { display: block; position: relative; }
 .reframe .blocco--chiusa { margin-bottom: 0; }
 .statement {
   margin: 0 auto clamp(48px, 7vw, 96px);
@@ -327,7 +428,7 @@ html.js .numero.in + .numero.in::before, html.js .numero.in::before { transform:
 }
 .statement .fr { color: var(--bianco); }
 .statement .cerchio { padding-inline: 0.1em; }
-/* Evidenziatore salvia: regge anche il testo che va a capo */
+/* Marcatore pieno salvia (regge il multilinea) */
 .marca-salvia {
   background-image: linear-gradient(to top, var(--marker-salvia-scuro), var(--marker-salvia-scuro));
   background-repeat: no-repeat;
@@ -341,50 +442,73 @@ html.js .rv .marca-salvia, html.js .marca-salvia { background-size: 0% 78%; tran
 html.js .rv.in .marca-salvia, html.js .in .marca-salvia { background-size: 100% 78%; }
 .cerchio { position: relative; white-space: nowrap; padding-inline: 0.06em; }
 .cerchio svg { position: absolute; left: 50%; top: 50%; width: 136%; height: 200%; transform: translate(-50%, -50%); overflow: visible; pointer-events: none; }
-/* Cerchi dentro il testo corrente: più respiro, ellisse più stretta */
-.fronte__testo .cerchio, .rigat__oggi .cerchio, .faq__corpo .cerchio { padding-inline: 0.26em; }
-.fronte__testo .cerchio svg, .rigat__oggi .cerchio svg, .faq__corpo .cerchio svg { width: 116%; height: 172%; }
 .cerchio path { stroke: var(--salvia-chiara); stroke-width: 2.6; fill: none; stroke-linecap: round; opacity: 0.95; }
 .cerchio--ambra path { stroke: var(--ambra); }
 html.js .cerchio path { stroke-dasharray: 1; stroke-dashoffset: 1; }
 html.js .in .cerchio path, html.js .cerchio.in path { stroke-dashoffset: 0; transition: stroke-dashoffset 950ms var(--ease-draw) 450ms; }
-.con-nota { position: relative; display: inline-block; }
+/* Cerchi dentro il testo corrente: più respiro, ellisse più stretta */
+.fronte__testo .cerchio, .rigat__oggi .cerchio, .faq__corpo .cerchio { padding-inline: 0.26em; }
+.fronte__testo .cerchio svg, .rigat__oggi .cerchio svg, .faq__corpo .cerchio svg { width: 116%; height: 172%; }
+.sotto { position: relative; white-space: nowrap; }
+.sotto svg { position: absolute; left: -1%; bottom: -0.18em; width: 102%; height: 0.3em; overflow: visible; pointer-events: none; }
+.sotto path { stroke: var(--bosco); stroke-width: 6; fill: none; stroke-linecap: round; opacity: 0.75; }
+.sotto--chiaro path { stroke: var(--salvia-chiara); opacity: 0.9; }
+html.js .sotto path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+html.js .in .sotto path, html.js .sotto.in path { stroke-dashoffset: 0; transition: stroke-dashoffset 800ms var(--ease-draw) 350ms; }
 .nota {
-  position: absolute; z-index: 3;
   font-family: var(--sans); font-weight: 600; font-size: 11.5px;
   text-transform: uppercase; letter-spacing: 0.14em;
   color: var(--salvia-chiara);
-  transform: rotate(var(--rot, -2.5deg));
-  pointer-events: none; white-space: nowrap;
 }
-.con-nota .nota--dx { right: clamp(-30px, -2vw, -10px); top: -44px; }
-.freccia-tec--nota { width: 44px; right: 30px; top: -30px; }
-html.js .nota { opacity: 0; transition: opacity 600ms var(--ease) 600ms; }
-html.js .in .nota, html.js .nota.in { opacity: 1; }
+.appunto--nota { right: clamp(-20px, -1vw, 0px); top: -46px; }
+.freccia-tec--nota { width: 44px; right: 60px; top: -32px; }
 
 /* ============================================================
-   03b · LE TRE SITUAZIONI — lista tipografica
+   04 · LE TRE SITUAZIONI — tre pelli diverse
    ============================================================ */
 .fronti { padding-block: 0 var(--respiro); }
-.fronti__lista { border-top: 1px solid var(--hairline-scuro); max-width: 980px; }
+.fronti__lista { display: grid; gap: clamp(20px, 2.6vw, 34px); max-width: 1020px; }
 .fronte {
-  display: grid; grid-template-columns: 110px 1fr;
-  gap: clamp(18px, 3vw, 48px);
-  padding-block: clamp(34px, 4.5vw, 60px);
-  border-bottom: 1px solid var(--hairline-scuro);
+  position: relative;
+  display: grid; grid-template-columns: auto auto 1fr; align-items: start;
+  gap: clamp(18px, 2.6vw, 36px);
+  padding: clamp(26px, 3.2vw, 46px) clamp(22px, 3vw, 48px);
+  transition: transform 400ms var(--ease-soft), box-shadow 400ms var(--ease-soft);
 }
+.fronte:hover { transform: translateY(-4px); box-shadow: 0 22px 44px rgba(6, 24, 27, 0.4); }
+.fronte--uno {
+  background: var(--petrolio);
+  border-radius: 120px 26px 26px 26px;
+  transform: rotate(-0.4deg);
+}
+.fronte--due {
+  background: var(--bosco);
+  border-radius: 26px 120px 26px 26px;
+  margin-left: clamp(0px, 4vw, 56px);
+  transform: rotate(0.4deg);
+}
+.fronte--tre {
+  background: var(--notte-fonda);
+  border: 1px solid var(--hairline-scuro-forte);
+  border-radius: 26px 26px 120px 26px;
+  margin-right: clamp(0px, 4vw, 56px);
+}
+.fronte--uno:hover { transform: rotate(-0.4deg) translateY(-4px); }
+.fronte--due:hover { transform: rotate(0.4deg) translateY(-4px); }
 .fronte__numero {
   font-family: var(--serifb); font-weight: 400; font-style: italic;
   font-synthesis: none;
   font-size: clamp(34px, 3.6vw, 52px); line-height: 1;
-  color: var(--salvia-chiara); opacity: 0.55;
+  color: var(--salvia-chiara); opacity: 0.6;
 }
-.fronte__titolo { margin: 0 0 12px 0; font-family: var(--momo); font-weight: 400; font-size: clamp(22px, 2.3vw, 31px); line-height: 1.25; color: var(--bianco); letter-spacing: -0.01em; }
-.fronte__testo { margin: 0; max-width: 68ch; font-size: 16px; line-height: 1.75; color: var(--avorio-70); }
-.fronte__testo .cerchio { color: var(--avorio); font-weight: 600; }
+.fronte__titolo { margin: 0 0 12px 0; font-family: var(--momo); font-weight: 400; font-size: clamp(22px, 2.3vw, 30px); line-height: 1.25; color: var(--bianco); letter-spacing: -0.01em; }
+.fronte__testo { margin: 0; max-width: 62ch; font-size: 16px; line-height: 1.75; color: var(--avorio-85); }
+.fronte__testo .cerchio { color: var(--bianco); font-weight: 600; }
 @media (max-width: 700px) {
-  .fronte { grid-template-columns: 1fr; gap: 10px; }
-  .fronte__numero { font-size: 30px; }
+  .fronte, .fronte--due, .fronte--tre { grid-template-columns: auto 1fr; margin-inline: 0; }
+  .fronte__numero { grid-column: 1; }
+  .chip--fronte { grid-column: 2; justify-self: end; width: 64px; height: 64px; }
+  .fronte__corpo { grid-column: 1 / -1; }
 }
 
 /* ============================================================
@@ -402,12 +526,11 @@ html.js .in .nota, html.js .nota.in { opacity: 1; }
   clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
   z-index: 2;
 }
-.isola + * { margin-top: 0; }
 .isola p { color: var(--notte-75); }
 .isola a { color: var(--bosco-testo); }
 
 /* ============================================================
-   04 · PRIMA / OGGI
+   05 · PRIMA / OGGI
    ============================================================ */
 .tavola .sezione__titolo { max-width: 16em; }
 .tavola__intesta {
@@ -420,22 +543,15 @@ html.js .in .nota, html.js .nota.in { opacity: 1; }
 .tavola__righe { display: grid; }
 .rigat {
   display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 4vw, 72px);
-  padding: clamp(20px, 2.6vw, 34px) 0;
+  padding: clamp(22px, 2.8vw, 36px) 0;
   border-bottom: 1px solid var(--hairline-chiaro);
   transition: background 250ms var(--ease-soft), transform 250ms var(--ease-soft);
 }
 .rigat:hover { background: rgba(59, 138, 100, 0.06); transform: translateY(-2px); }
-.rigat__prima, .rigat__oggi { display: flex; gap: 16px; align-items: flex-start; }
-.rigat__prima p { margin: 0; position: relative; display: inline; font-size: 16px; color: var(--notte-75); }
+.rigat__prima, .rigat__oggi { display: flex; gap: 18px; align-items: flex-start; }
+.rigat__prima p { margin: 0; position: relative; display: inline; font-size: 16px; color: var(--notte-75); align-self: center; }
 .rigat__oggi p { margin: 0; font-size: 16.5px; color: var(--notte); }
 .rigat__oggi strong { font-weight: 600; }
-.segno { flex: none; width: 22px; height: 22px; margin-top: 4px; }
-.segno svg { display: block; width: 100%; height: 100%; overflow: visible; }
-.segno--x path { stroke: rgba(17, 59, 68, 0.55); stroke-width: 2.6; fill: none; stroke-linecap: round; }
-.segno--v path { stroke: var(--bosco); stroke-width: 2.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-html.js .segno path { stroke-dasharray: 1; stroke-dashoffset: 1; }
-html.js .rigat.in .segno--x path { stroke-dashoffset: 0; transition: stroke-dashoffset 350ms var(--ease-draw) 150ms; }
-html.js .rigat.in .segno--v path { stroke-dashoffset: 0; transition: stroke-dashoffset 450ms var(--ease-draw) 600ms; }
 /* Ritmo "correzione": prima entra la colonna Prima, poi Oggi la corregge */
 html.js .rigat__prima, html.js .rigat__oggi { opacity: 0; transform: translateY(14px); transition: opacity 650ms var(--ease), transform 650ms var(--ease); }
 html.js .rigat.in .rigat__prima { opacity: 1; transform: none; }
@@ -447,44 +563,69 @@ html.js .rigat.in .rigat__oggi { opacity: 1; transform: none; transition-delay: 
 html.js .rigat__prima p::after { transform: scaleX(0); transform-origin: left center; transition: transform 500ms var(--ease-draw) 700ms; }
 html.js .rigat.in .rigat__prima p::after { transform: scaleX(1); }
 .tavola__nota {
-  margin: clamp(36px, 5vw, 60px) 0 0 0;
-  font-size: 16px; text-align: center;
+  margin: clamp(36px, 5vw, 60px) auto 0;
+  font-size: 16px; text-align: center; max-width: 64ch;
 }
 .tavola__nota strong { color: var(--notte); font-weight: 600; }
+.tavola__nota .sotto { white-space: normal; }
+.tavola__nota .sotto svg { display: none; }
+@media (min-width: 761px) { .tavola__nota .sotto { white-space: normal; } }
 @media (max-width: 760px) {
   .tavola__intesta { display: none; }
-  .rigat { grid-template-columns: 1fr; gap: 12px; }
-  .rigat__oggi { padding-left: 20px; border-left: 2px solid var(--salvia); }
+  .rigat { grid-template-columns: 1fr; gap: 14px; }
+  .rigat__oggi { padding-left: 18px; border-left: 2px solid var(--salvia); }
 }
 
 /* ============================================================
-   05 · FATTI
+   06 · FATTI — bento dinamico
    ============================================================ */
 .fatti { padding-block: var(--respiro); background: var(--notte); }
-.fatti__griglia { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2.2vw, 32px); }
-.fatto {
-  background: var(--petrolio);
-  border: 1px solid var(--hairline-scuro);
-  padding: clamp(26px, 2.8vw, 40px);
-  transition: transform 350ms var(--ease-soft), border-color 350ms var(--ease-soft), box-shadow 350ms var(--ease-soft);
+.bento {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "a a b" "c d e" "f f e";
+  gap: clamp(16px, 2vw, 26px);
 }
-.fatto:hover { transform: translateY(-5px); border-color: var(--hairline-scuro-forte); box-shadow: 0 18px 40px rgba(6, 24, 27, 0.45); }
-.fatto__icona { display: block; width: 52px; height: 52px; margin-bottom: 20px; }
-.fatto__icona img { width: 100%; height: 100%; object-fit: contain; }
-.fatto h3 { margin: 0 0 8px 0; font-family: var(--sans); font-weight: 600; font-size: 17.5px; line-height: 1.35; color: var(--bianco); }
-.fatto p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--avorio-70); }
+.fatto {
+  position: relative;
+  display: flex; align-items: flex-start; gap: clamp(18px, 2vw, 28px);
+  padding: clamp(24px, 2.8vw, 40px);
+  border-radius: 26px;
+  transition: transform 350ms var(--ease-soft), box-shadow 350ms var(--ease-soft);
+}
+.fatto:hover { transform: translateY(-6px) rotate(0deg) !important; box-shadow: 0 22px 44px rgba(6, 24, 27, 0.45); }
+.fatto h3 { margin: 0 0 8px 0; font-family: var(--momo); font-weight: 400; font-size: clamp(20px, 1.9vw, 26px); line-height: 1.25; letter-spacing: -0.01em; }
+.fatto p { margin: 0; font-size: 15px; line-height: 1.65; }
+.fatto--a { grid-area: a; background: var(--avorio); color: var(--notte); border-radius: 120px 26px 26px 26px; transform: rotate(-0.5deg); }
+.fatto--a h3 { color: var(--notte); font-size: clamp(24px, 2.3vw, 32px); }
+.fatto--a p { color: var(--notte-75); }
+.fatto--b { grid-area: b; background: var(--petrolio); border-radius: 26px 120px 26px 26px; }
+.fatto--c { grid-area: c; background: var(--bosco); }
+.fatto--d { grid-area: d; background: var(--petrolio); }
+.fatto--e { grid-area: e; background: var(--avorio); color: var(--notte); border-radius: 26px 26px 120px 26px; transform: rotate(0.5deg); flex-direction: column; }
+.fatto--e h3 { color: var(--notte); }
+.fatto--e p { color: var(--notte-75); }
+.fatto--f { grid-area: f; background: var(--bosco); border-radius: 26px 26px 26px 120px; }
+.fatto--b h3, .fatto--c h3, .fatto--d h3, .fatto--f h3 { color: var(--bianco); }
+.fatto--b p, .fatto--c p, .fatto--d p, .fatto--f p { color: var(--avorio-85); }
+.fatto--a .chip, .fatto--e .chip { background: var(--bianco); border: 1px solid var(--hairline-chiaro); box-shadow: 0 3px 0 rgba(17, 59, 68, 0.18); }
 .fatti__chiusa {
   margin: clamp(48px, 6vw, 84px) 0 0 0; text-align: center;
   font-family: var(--serifb); font-weight: 400; font-style: italic;
   font-size: clamp(21px, 2.2vw, 28px); color: var(--avorio-85);
 }
-@media (max-width: 960px) { .fatti__griglia { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { .fatti__griglia { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; } }
+@media (max-width: 960px) {
+  .bento { grid-template-columns: 1fr 1fr; grid-template-areas: "a a" "b c" "d e" "f f"; }
+  .fatto--e { flex-direction: row; }
+}
+@media (max-width: 620px) {
+  .bento { grid-template-columns: 1fr; grid-template-areas: "a" "b" "c" "d" "e" "f"; }
+  .fatto, .fatto--a, .fatto--e { transform: none; }
+}
 
 /* ============================================================
-   06 · CTA RIPRESA
+   07 · CTA RIPRESA
    ============================================================ */
-.ripresa { position: relative; overflow: hidden; overflow: clip; padding-block: clamp(90px, 12vw, 180px); text-align: center; }
+.ripresa { position: relative; overflow: hidden; overflow: clip; padding-block: clamp(90px, 12vw, 180px); text-align: center; background: linear-gradient(180deg, var(--notte) 0%, #10373f 55%, var(--notte) 100%); }
 .ripresa__riga {
   margin: 0 0 clamp(56px, 7vw, 92px) 0;
   font-size: clamp(34px, 4.6vw, 60px); line-height: 1.06; letter-spacing: -0.015em;
@@ -492,13 +633,12 @@ html.js .rigat.in .rigat__prima p::after { transform: scaleX(1); }
 }
 .ripresa__riga .fr { color: var(--bianco); }
 .ripresa__azione { position: relative; display: inline-block; }
-.freccia-tec--ripresa { width: 30px; left: 50%; top: -66px; transform: translateX(-50%); }
 .nota--ironica { position: static; display: inline-block; margin-top: 26px; color: var(--salvia-chiara); }
-html.js .nota--ironica { opacity: 0; }
+html.js .nota--ironica { opacity: 0; transition: opacity 600ms var(--ease) 400ms; }
 html.js .nota--ironica.in { opacity: 1; }
 
 /* ============================================================
-   07 · PERCORSO
+   08 · PERCORSO — quattro pelli
    ============================================================ */
 .linea-tempo { position: relative; }
 .linea-tempo__asta { position: absolute; top: 10px; bottom: 10px; left: 50%; width: 2px; transform: translateX(-50%); background: var(--hairline-chiaro); }
@@ -508,7 +648,7 @@ html:not(.js) .linea-tempo__asta i { transform: none; }
   position: relative;
   display: grid; grid-template-columns: 1fr 96px 1fr; align-items: center;
   gap: clamp(16px, 2.5vw, 36px);
-  padding-block: clamp(36px, 4.5vw, 64px);
+  padding-block: clamp(40px, 5vw, 72px);
 }
 .passo__nodo {
   grid-column: 2; justify-self: center; align-self: start;
@@ -520,73 +660,81 @@ html:not(.js) .linea-tempo__asta i { transform: none; }
 .passo__nodo b { font-family: var(--serifb); font-weight: 600; font-size: 21px; color: var(--avorio); }
 html.js .passo__nodo { transform: scale(0.7); opacity: 0; transition: transform 500ms var(--ease) 150ms, opacity 500ms var(--ease) 150ms; }
 html.js .passo.in .passo__nodo { transform: scale(1); opacity: 1; }
-.passo__testo { grid-column: 1; grid-row: 1; text-align: right; }
+.passo--tre .passo__nodo { background: var(--petrolio); }
+.passo--quattro .passo__nodo { background: var(--notte); }
+.passo__testo { grid-column: 1; grid-row: 1; display: grid; justify-items: end; text-align: right; position: relative; }
 .passo__foto { grid-column: 3; grid-row: 1; margin: 0; justify-self: start; }
-.passo--alterno .passo__testo { grid-column: 3; text-align: left; }
+.passo--alterno .passo__testo { grid-column: 3; text-align: left; justify-items: start; }
 .passo--alterno .passo__foto { grid-column: 1; justify-self: end; }
-.passo__testo h3 { margin: 0 0 10px 0; font-family: var(--momo); font-weight: 400; font-size: clamp(24px, 2.4vw, 33px); color: var(--notte); letter-spacing: -0.01em; }
+.passo__titolo { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.passo--uno .passo__titolo, .passo--tre .passo__titolo { flex-direction: row-reverse; }
+.passo__titolo h3 { margin: 0; font-family: var(--momo); font-weight: 400; font-size: clamp(24px, 2.4vw, 33px); color: var(--notte); letter-spacing: -0.01em; }
 .passo__testo p { margin: 0; font-size: 16px; max-width: 42ch; }
-.passo__testo { display: grid; justify-items: end; }
-.passo--alterno .passo__testo { justify-items: start; }
 .passo__ricevi { margin-top: 14px !important; padding-top: 10px; border-top: 1px solid var(--hairline-chiaro); font-size: 13.5px; color: var(--bosco-testo); }
 .passo__ricevi .caps { font-size: 10.5px; margin-right: 6px; }
-.arco-clip {
-  display: block; overflow: hidden;
-  border-radius: 999px 999px 0 0;
-  width: min(100%, 340px);
-  background: var(--notte);
-}
-.arco-clip img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 4.6; filter: saturate(0.94); }
-html.js .arco-clip { clip-path: inset(100% 0 0 0); transition: clip-path 900ms var(--ease) 200ms; }
-html.js .in .arco-clip, html.js .arco-clip.in { clip-path: inset(0 0 0 0); }
+.appunto--ricevi { position: static; display: inline-block; }
+.con-appunto--passo { position: absolute; top: 0; right: 0; width: 100%; height: 0; }
+.passo--alterno .con-appunto--passo { right: auto; left: 0; }
+
+/* Maschere foto: una per passo */
+.maschera { display: block; overflow: hidden; width: min(100%, 360px); background: var(--bianco); position: relative; }
+.maschera img { width: 100%; height: 100%; object-fit: cover; }
+.maschera--arco { border-radius: 999px 999px 26px 26px; aspect-ratio: 4 / 4.2; }
+.maschera--quadro { border-radius: 30px; aspect-ratio: 1 / 1; transform: rotate(-2deg); outline: 1.5px solid var(--hairline-chiaro-forte); outline-offset: 8px; }
+.maschera--oblo { border-radius: 50%; aspect-ratio: 1 / 1; width: min(100%, 320px); box-shadow: 0 0 0 8px var(--avorio), 0 0 0 9.5px var(--salvia); }
+.maschera--doppia { outline: 1.5px solid var(--hairline-chiaro-forte); outline-offset: 10px; }
+html.js .maschera { clip-path: inset(100% 0 0 0); transition: clip-path 900ms var(--ease) 200ms; }
+html.js .in .maschera, html.js .maschera.in { clip-path: inset(0 0 0 0); }
+html.js .maschera--quadro { transition: clip-path 900ms var(--ease) 200ms, transform 900ms var(--ease) 200ms; }
 @media (max-width: 860px) {
   .linea-tempo__asta { left: 20px; transform: none; }
   .passo, .passo--alterno { grid-template-columns: 1fr; padding-left: 56px; }
-  .passo__nodo, .passo--alterno .passo__nodo { grid-column: auto; grid-row: auto; position: absolute; left: -7px; top: clamp(36px, 4.5vw, 64px); justify-self: auto; width: 54px; height: 40px; }
+  .passo__nodo, .passo--alterno .passo__nodo { grid-column: auto; grid-row: auto; position: absolute; left: -7px; top: clamp(40px, 5vw, 72px); justify-self: auto; width: 54px; height: 40px; }
   .passo__testo, .passo--alterno .passo__testo { grid-column: 1; grid-row: auto; text-align: left; justify-items: start; }
+  .passo--uno .passo__titolo, .passo--tre .passo__titolo { flex-direction: row; }
   .passo__foto, .passo--alterno .passo__foto { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 22px; }
-  .arco-clip { width: min(100%, 300px); }
+  .maschera { width: min(100%, 320px); }
+  .maschera--oblo { width: min(100%, 280px); }
 }
 
 /* ============================================================
-   08 · CHI RISPONDE — Verde Bosco
+   09 · CHI RISPONDE — Verde Bosco
    ============================================================ */
-.struttura { background: var(--bosco); padding-block: var(--respiro); }
+.struttura { background: linear-gradient(180deg, var(--notte) 0%, var(--bosco) 14%, var(--bosco) 100%); padding-block: var(--respiro); }
 .struttura.capitolo::before { color: rgba(247, 244, 235, 0.06); }
 .struttura__griglia { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(36px, 6vw, 100px); align-items: center; }
-.struttura__foto { margin: 0; }
+.struttura__foto { margin: 0; position: relative; }
+.arco-clip { display: block; overflow: hidden; border-radius: 999px 999px 0 0; background: var(--notte); }
+.arco-clip img { width: 100%; height: 100%; object-fit: cover; }
 .arco-clip--grande { width: min(100%, 460px); }
 .arco-clip--grande img { aspect-ratio: 4 / 4.4; }
+html.js .arco-clip { clip-path: inset(100% 0 0 0); transition: clip-path 900ms var(--ease) 200ms; }
+html.js .in .arco-clip, html.js .arco-clip.in { clip-path: inset(0 0 0 0); }
+.appunto--struttura { position: absolute; right: 6%; bottom: -30px; }
 .struttura__testo .sezione__titolo { margin-bottom: clamp(24px, 3vw, 40px); }
 .struttura__testo p { margin: 0 0 1.3em 0; color: var(--avorio-85); font-size: 16.5px; max-width: 52ch; }
-.sotto { position: relative; white-space: nowrap; }
-.sotto svg { position: absolute; left: -1%; bottom: -0.18em; width: 102%; height: 0.3em; overflow: visible; pointer-events: none; }
-.sotto path { stroke: var(--salvia-chiara); stroke-width: 6; fill: none; stroke-linecap: round; opacity: 0.9; }
-html.js .sotto path { stroke-dasharray: 1; stroke-dashoffset: 1; }
-html.js .in .sotto path, html.js .sotto.in path { stroke-dashoffset: 0; transition: stroke-dashoffset 800ms var(--ease-draw) 350ms; }
 .struttura__badge { list-style: none; margin: clamp(28px, 3.5vw, 44px) 0 0 0; padding: 0; display: grid; gap: 14px; }
 .struttura__badge li {
   display: flex; align-items: center; gap: 16px;
   border-top: 1px solid rgba(247, 244, 235, 0.22); padding-top: 14px;
   font-family: var(--sans); font-weight: 500; font-size: 15px; color: var(--avorio);
 }
-.struttura__badge img { width: 40px; height: 40px; object-fit: contain; flex: none; }
 @media (max-width: 900px) {
   .struttura__griglia { grid-template-columns: 1fr; }
   .arco-clip--grande { width: min(100%, 340px); }
 }
 
 /* ============================================================
-   09 · FAQ
+   10 · FAQ
    ============================================================ */
-.faq .sezione__testa { position: relative; }
-.nota--faq { position: static; display: inline-block; margin-top: 14px; color: var(--bosco-testo); }
+.con-appunto--faq { display: block; height: 64px; }
+.con-appunto--faq .appunto { position: static; display: inline-block; }
 .faq__lista { border-top: 1px solid var(--hairline-chiaro-forte); }
 .faq__voce { border-bottom: 1px solid var(--hairline-chiaro-forte); }
 .faq__voce summary {
   list-style: none; cursor: pointer;
-  display: flex; align-items: center; justify-content: space-between; gap: 18px;
-  padding: 22px 4px;
+  display: flex; align-items: center; gap: 18px;
+  padding: 18px 4px;
   font-family: var(--sans); font-weight: 600; font-size: clamp(16.5px, 1.6vw, 20px);
   color: var(--notte);
   transition: color 250ms var(--ease-soft);
@@ -594,22 +742,24 @@ html.js .in .sotto path, html.js .sotto.in path { stroke-dashoffset: 0; transiti
 }
 .faq__voce summary::-webkit-details-marker { display: none; }
 .faq__voce summary:hover { color: var(--bosco-testo); }
+.faq__testo { flex: 1; }
 .faq__più { font-family: var(--sans); font-weight: 400; font-size: 24px; color: var(--bosco); flex: none; transition: transform 350ms var(--ease-soft); line-height: 1; }
 .faq__voce[open] .faq__più { transform: rotate(45deg); }
 .faq__corpo { overflow: hidden; }
-.faq__corpo p { margin: 0; padding: 0 4px 26px; max-width: 64ch; font-size: 16px; }
+.faq__corpo p { margin: 0; padding: 0 4px 26px 70px; max-width: 64ch; font-size: 16px; }
 @media (prefers-reduced-motion: no-preference) {
   :root { interpolate-size: allow-keywords; }
   .faq__voce::details-content { block-size: 0; overflow-y: clip; transition: content-visibility 300ms allow-discrete, block-size 300ms var(--ease-soft); }
   .faq__voce[open]::details-content { block-size: auto; }
 }
+@media (max-width: 640px) { .faq__corpo p { padding-left: 4px; } }
 
 /* ============================================================
-   10 · VERIFICA — la discesa
+   11 · VERIFICA — l'alba
    ============================================================ */
 .verifica {
   position: relative; overflow: hidden; overflow: clip;
-  background: linear-gradient(180deg, var(--notte) 0%, var(--notte-fonda) 55%, var(--notte-fonda) 100%);
+  background: linear-gradient(180deg, var(--notte) 0%, #0f4c4c 26%, var(--petrolio) 42%, #21665b 56%, var(--salvia) 72%, #9dbfa6 88%, #cdd9c8 100%);
   padding-block: var(--respiro) clamp(90px, 11vw, 170px);
 }
 .verifica__arco {
@@ -620,9 +770,9 @@ html.js .in .sotto path, html.js .sotto.in path { stroke-dashoffset: 0; transiti
 .verifica__arco path { stroke: rgba(143, 203, 170, 0.16); stroke-width: 2; fill: none; stroke-linecap: round; }
 html.js .verifica__arco path { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1400ms var(--ease-draw) 300ms; }
 html.js .verifica__arco.in path { stroke-dashoffset: 0; }
-.verifica__porta { margin: 0 auto clamp(30px, 4vw, 48px); width: clamp(120px, 16vw, 170px); }
-.arco-clip--porta img { aspect-ratio: 3 / 4.4; opacity: 0.9; }
 .verifica .colonna--centro { max-width: 900px; }
+.verifica__porta { margin: 0 auto clamp(30px, 4vw, 48px); width: clamp(130px, 17vw, 180px); }
+.arco-clip--porta img { aspect-ratio: 3 / 4.2; }
 .verifica__statement {
   margin: 0 0 clamp(22px, 3vw, 36px) 0;
   font-weight: 400;
@@ -630,22 +780,24 @@ html.js .verifica__arco.in path { stroke-dashoffset: 0; }
   color: var(--avorio);
 }
 .verifica__statement .fr { color: var(--bianco); }
-.verifica__sub { margin: 0 auto; max-width: 40ch; font-size: clamp(17px, 1.7vw, 20px); color: var(--avorio-70); }
+.verifica__sub { margin: 0 auto; max-width: 44ch; font-size: clamp(17px, 1.7vw, 20px); color: var(--avorio-85); }
 .verifica__carta {
   position: relative;
-  max-width: 900px; margin: clamp(56px, 7vw, 96px) auto 0;
+  max-width: 900px;
   background: var(--avorio); color: var(--notte);
   border-radius: clamp(64px, 12vw, 150px) clamp(64px, 12vw, 150px) 0 0;
   padding: clamp(64px, 9vw, 120px) clamp(26px, 5vw, 84px) clamp(40px, 5vw, 72px);
-  margin-inline: max(var(--gutter), calc((100% - 900px) / 2));
+  margin: clamp(56px, 7vw, 96px) max(var(--gutter), calc((100% - 900px) / 2)) 0;
+  box-shadow: 0 30px 60px rgba(13, 47, 55, 0.28);
 }
 .verifica__cartachiave {
   position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-  width: 54px; height: 40px; background: var(--salvia);
+  width: 54px; height: 40px; background: var(--notte);
   clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
 }
 .verifica__carta p { color: var(--notte-75); }
 .verifica__carta .segnaposto { opacity: 1; }
+.appunto--form { top: -44px; right: 26px; position: absolute; color: var(--notte); }
 
 /* ---------- Form ---------- */
 .form { display: grid; gap: clamp(30px, 3.5vw, 46px); }
@@ -654,8 +806,7 @@ html.js .verifica__arco.in path { stroke-dashoffset: 0; }
 .form legend .num { color: var(--bosco-testo); margin-right: 10px; font-family: var(--serifb); font-weight: 600; }
 .form__postilla {
   margin: -8px 0 14px 0;
-  font-family: var(--sans); font-weight: 600; font-size: 11px;
-  text-transform: uppercase; letter-spacing: 0.14em;
+  font-family: var(--mano); font-weight: 600; font-size: 20px;
   color: var(--bosco-testo); transform: rotate(-1.5deg); transform-origin: left center;
 }
 .opzioni { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -665,7 +816,7 @@ html.js .verifica__arco.in path { stroke-dashoffset: 0; }
   display: inline-block;
   border: 1px solid var(--hairline-chiaro-forte); color: var(--notte);
   font-family: var(--sans); font-size: 14.5px; line-height: 1.4; cursor: pointer;
-  padding: 13px 19px;
+  padding: 13px 19px; border-radius: 14px 14px 14px 4px;
   transition: border-color 220ms var(--ease-soft), background 220ms var(--ease-soft), color 220ms var(--ease-soft), transform 220ms var(--ease-soft);
 }
 .opzione input:hover + span { border-color: var(--notte); transform: translateY(-2px); }
@@ -722,16 +873,17 @@ html:not(.js) .wizard__stato, html:not(.js) .wizard__nav { display: none; }
 @media (max-width: 600px) { .form--step .opzioni { grid-template-columns: 1fr; } }
 
 /* ============================================================
-   FOOTER
+   FOOTER — chiaro: l'alba si compie
    ============================================================ */
-.footer { background: var(--notte-fonda); border-top: 1px solid var(--hairline-scuro); padding-block: clamp(52px, 6vw, 88px); }
+.footer { background: var(--avorio); color: var(--notte); border-top: 1px solid var(--hairline-chiaro); padding-block: clamp(52px, 6vw, 88px); }
 .footer__griglia { display: grid; grid-template-columns: auto 1fr 1fr; gap: clamp(32px, 5vw, 80px); align-items: start; }
 .footer__logo img { height: 54px; width: auto; }
-.footer__dati { margin: 0; font-size: 13.5px; line-height: 2; color: var(--avorio-70); font-style: normal; }
-.footer__dati strong { color: var(--avorio); font-weight: 600; }
-.footer__note { font-size: 12.5px; line-height: 1.9; color: var(--avorio-70); }
+.footer__dati { margin: 0; font-size: 13.5px; line-height: 2; color: var(--notte-75); font-style: normal; }
+.footer__dati strong { color: var(--notte); font-weight: 600; }
+.footer__note { font-size: 12.5px; line-height: 1.9; color: var(--notte-75); }
 .footer__note p { margin: 0 0 12px 0; }
 .footer__legal { font-size: 13px; }
+.footer .segnaposto { opacity: 1; color: var(--notte-75); }
 @media (max-width: 900px) { .footer__griglia { grid-template-columns: 1fr; gap: 26px; } }
 
 /* ============================================================
@@ -739,7 +891,11 @@ html:not(.js) .wizard__stato, html:not(.js) .wizard__nav { display: none; }
    ============================================================ */
 html.js .rv { opacity: 0; transform: translateY(26px); filter: blur(6px); transition: opacity 900ms var(--ease), transform 900ms var(--ease), filter 900ms var(--ease); transition-delay: var(--d, 0ms); }
 html.js .rv.in { opacity: 1; transform: none; filter: none; }
-html.js .fatto.rv.in, html.js .rigat.rv.in { transition: opacity 900ms var(--ease) var(--d, 0ms), filter 900ms var(--ease) var(--d, 0ms), transform 350ms var(--ease-soft), border-color 350ms var(--ease-soft), box-shadow 350ms var(--ease-soft), background 250ms var(--ease-soft); }
+html.js .fatto.rv.in, html.js .rigat.rv.in, html.js .fronte.rv.in { transition: opacity 900ms var(--ease) var(--d, 0ms), filter 900ms var(--ease) var(--d, 0ms), transform 400ms var(--ease-soft), box-shadow 400ms var(--ease-soft), background 250ms var(--ease-soft); }
+html.js .fatto--a.rv.in { transform: rotate(-0.5deg); }
+html.js .fatto--e.rv.in { transform: rotate(0.5deg); }
+html.js .fronte--uno.rv.in { transform: rotate(-0.4deg); }
+html.js .fronte--due.rv.in { transform: rotate(0.4deg); }
 
 html.js .riga { display: block; overflow: hidden; overflow: clip; padding-bottom: 0.32em; margin-bottom: -0.32em; }
 html.js .riga > span { display: inline-block; transform: translateY(140%); transition: transform 950ms var(--ease); transition-delay: var(--d, 0ms); }
@@ -748,13 +904,16 @@ html.js .in .riga > span, html.js .riga.in > span { transform: translateY(0); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   html.js .rv, html.js .riga > span { opacity: 1; transform: none; filter: none; transition: none; }
-  html.js .alone .a1, html.js .alone .a2, html.js .btn--hero { animation: none; }
+  html.js .alone .a1, html.js .alone .a2, html.js .btn--hero, html.js .deco, html.js .deco--sparkle { animation: none; }
   .btn:hover::after { animation: none; }
-  html.js .sotto-svg path, html.js .cerchio path, html.js .freccia-tec path, html.js .sotto path, html.js .segno path, html.js .hero__arco path, html.js .verifica__arco path { stroke-dashoffset: 0 !important; transition: none; }
+  html.js .cerchio path, html.js .freccia-tec path, html.js .sotto path, html.js .verifica__arco path { stroke-dashoffset: 0 !important; transition: none; }
   html.js .marca-salvia, html.js .rv .marca-salvia { background-size: 100% 78%; transition: none; }
-  html.js .nota, html.js .nota--ironica { opacity: 1; transition: none; }
-  html.js .hero__chiave { opacity: 1; transform: translateX(-50%); transition: none; }
-  html.js .arco-clip { clip-path: none; transition: none; }
+  html.js .rv .hi, html.js .riga .hi { background-size: 100% 0.55em; transition: none; }
+  html.js .marca::before { transform: skewX(-4deg) scaleX(1); transition: none; }
+  html.js .appunto, html.js .nota--ironica { opacity: 1; transition: none; }
+  html.js .hero__arch-chiave { opacity: 1; transform: translateX(-50%); transition: none; }
+  html.js .hero__arch-clip .hero__figura-img { transform: none; transition: none; }
+  html.js .maschera, html.js .arco-clip { clip-path: none; transition: none; }
   html.js .rigat__prima, html.js .rigat__oggi { opacity: 1; transform: none; transition: none; }
   html.js .rigat__prima p::after { transform: scaleX(1); transition: none; }
   html.js .numero + .numero::before { transform: none; transition: none; }
@@ -765,19 +924,32 @@ html.js .in .riga > span, html.js .riga.in > span { transform: translateY(0); }
   .lettura { display: none; }
 }
 
-/* ---------- Mobile: note e frecce decorative ---------- */
+/* ---------- Responsive: hero e decorazioni ---------- */
+@media (max-width: 980px) {
+  .hero { min-height: 0; padding-top: clamp(88px, 12vh, 120px); }
+  .hero__grid { display: flex; flex-direction: column; align-items: stretch; }
+  .hero__content { display: contents; }
+  .hero__kicker { order: 1; }
+  .hero__title { order: 2; }
+  .hero__figura { order: 3; margin: 18px auto 44px; width: min(78%, 360px); }
+  .hero__azione { order: 4; }
+  .hero__sub { order: 5; margin-top: 34px; }
+  .hero__lead { order: 6; margin-bottom: 10px; }
+  .appunto--figura { bottom: -28px; }
+}
 @media (max-width: 860px) {
-  .freccia-tec--nota { display: none; }
-  .con-nota .nota--dx { position: static; display: inline-block; margin-bottom: 14px; }
+  .con-appunto--passo, .freccia-tec--nota, .appunto--nota, .appunto--struttura, .con-appunto--faq { display: none; }
   .capitolo::before { font-size: clamp(110px, 30vw, 180px); }
 }
 @media (max-width: 760px) {
   body { font-size: 16.5px; }
   /* niente blur animato sui telefoni: solo opacity+transform */
   html.js .rv { filter: none; transition: opacity 900ms var(--ease), transform 900ms var(--ease); transition-delay: var(--d, 0ms); }
-  .hero__title { font-size: clamp(42px, 12vw, 60px); }
-  .hero__sub br { display: none; }
+  .hero__title { font-size: clamp(40px, 11vw, 56px); }
   .hero__azione .btn { width: 100%; }
   .reframe .blocco { font-size: 17.5px; }
   .statement { font-size: clamp(30px, 8.6vw, 44px); }
+}
+@media (max-width: 640px) {
+  .hero__azione .con-appunto, .appunto--form, .ripresa .con-appunto { display: none; }
 }
